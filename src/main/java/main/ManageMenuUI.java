@@ -207,7 +207,12 @@ public class ManageMenuUI extends javax.swing.JFrame {
     private javax.swing.JTextField price;
     private javax.swing.JButton updateMenuBtn;
     // End of variables declaration//GEN-END:variables
-
+    public JButton getUpdateMenuBtn(){
+        return this.updateMenuBtn;
+    }
+    public void setUpdateMenuBtn(JButton updateMenuBtn){
+        this.updateMenuBtn = updateMenuBtn;
+    }
     public JTextField getMenuName(){
         return this.menuName;
     }

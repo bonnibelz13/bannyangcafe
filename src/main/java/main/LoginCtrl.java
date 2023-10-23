@@ -10,8 +10,7 @@ import model.Account;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.google.firebase.database.*;
-import com.google.firebase.FirebaseApp;
+//import com.google.firebase.FirebaseApp;
 
 import java.io.IOException;
 
@@ -22,7 +21,7 @@ import java.io.IOException;
 public class LoginCtrl implements ActionListener {
     private LoginUI loginUI;
     private LoginModel loginModel;
-    private DatabaseReference mDatabase;
+    //private DatabaseReference mDatabase;
     private Account user;
     
     public LoginCtrl() {
