@@ -14,14 +14,14 @@ public class Menu implements Serializable {
     private String name;
     private String price;
     private String description;
-    private ImageIcon image;
+    private byte[] image;
     
     public Menu(){
          // Default constructor required for calls to DataSnapshot.getValue(User.class)
         this("", "", "", null);
     
     }
-    public Menu( String name , String price, String description, ImageIcon image){
+    public Menu( String name , String price, String description, byte[] image){
         this.name = name;
         this.price =price;
         this.description = description;
@@ -53,11 +53,11 @@ public class Menu implements Serializable {
         this.description = description;
     }
 
-    public ImageIcon getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(ImageIcon image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
     

@@ -9,6 +9,10 @@ import java.io.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -16,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import model.Account;
+import model.db;
 
 /**
  *
@@ -24,8 +30,10 @@ import javax.swing.table.DefaultTableModel;
 public class ManageMenuModel {
         private ManageMenuUI view;
    // private UpdateMenuUI updateView;
-    private String imgPath;
+    private byte[] imgPath;
     private JTable table;
+    private int user_id;
+    private File img_file;
 
     public ManageMenuModel(){
         this(null);
@@ -34,6 +42,22 @@ public class ManageMenuModel {
         this.view = view;
         //this.updateView = updateView;
     }
+    public void findUserID(Account user){
+        Connection con = db.getConnection();
+        String sql= ("SELECT id FROM user WHERE username = " + user.getUsername() );
+
+        try (Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);)
+        {while(rs.next()){
+            user_id = rs.getInt("id");
+            System.out.println(user_id);
+        }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    
+
+    }
     public void UploadPicture() {
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("4 supported extensions", "jpg", "jpeg", "gif", "png");
@@ -41,19 +65,23 @@ public class ManageMenuModel {
         int selected = fileChooser.showOpenDialog(null);
 
         if (selected == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            String getSelectedImage = file.getAbsolutePath();
+            File img_file = fileChooser.getSelectedFile();
+            String getSelectedImage = img_file.getAbsolutePath();
             ImageIcon img = new ImageIcon(getSelectedImage);
             
             // img to fit the jlabel
             
             view.getImageLabel().setIcon(new ImageIcon(img.getImage().getScaledInstance(250, 210, Image.SCALE_SMOOTH)));
-            this.imgPath = getSelectedImage;
+            this.img_file = img_file;
+    //this.imgPath = getSelectedImage;
 
         }
     }
-    
-    public String getImagePath(){
+    public File getImageFile(){
+        return this.img_file;
+        
+    }
+    public byte[] getImagePath(){
         return this.imgPath;
     }
     public ImageIcon setMenuImg(String imgPath){
@@ -71,13 +99,56 @@ public class ManageMenuModel {
             return new ArrayList();
         }
     }
-    public void saveMenu(ArrayList menu){
-        try(FileOutputStream fOut = new FileOutputStream("MenuData.dat");
-            ObjectOutputStream oout = new ObjectOutputStream(fOut);){
-            oout.writeObject(menu);
-            System.out.println("save menu data success");
-        }catch(IOException | IndexOutOfBoundsException e){
-            System.out.println(e); 
+    public boolean saveMenu(Menu menu){
+//        try(FileOutputStream fOut = new FileOutputStream("MenuData.dat");
+//            ObjectOutputStream oout = new ObjectOutputStream(fOut);){
+//            oout.writeObject(menu);
+//            System.out.println("save menu data success");
+//        }catch(IOException | IndexOutOfBoundsException e){
+//            System.out.println(e); 
+//        }
+        String sql = "INSERT INTO menu(user_id, menu_name, menu_des,menu_price, menu_pic, status_id)VALUES(?,?,?,?,?,?)";
+        Connection con = db.getConnection();
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+
+            ps.setInt(1, user_id);
+            ps.setString(2, menu.getName());
+            ps.setString(3, menu.getDescription());
+            ps.setDouble(4, Double.parseDouble(menu.getPrice()));
+            ps.setBytes(5, menu.getImage());
+            ps.setInt(6, 1);
+            
+            int rowsAffected = ps.executeUpdate();
+            
+            return rowsAffected > 0;
+            
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+    public boolean insertAccount(Account account){
+        String sql = "INSERT INTO user (email, username, password) VALUES (?,?,?)";
+        Connection con = db.getConnection();
+        PreparedStatement ps = null;
+
+        try {
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, account.getEmail());
+            ps.setString(2, account.getUsername());
+            ps.setString(3, account.getPassword());
+            
+            int rowsAffected = ps.executeUpdate();
+            
+            return rowsAffected > 0;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
         }
     }
     public boolean checkMenu(String name){
@@ -126,25 +197,26 @@ public class ManageMenuModel {
         tableModel.addRow(new Object[]{menu.getImage(),menu.getName(), menu.getDescription(), menu.getPrice()});
     }
 
-    public void deleteMenu(int row, String name){
-        ArrayList<Menu> menuArr = loadMenu();
-                try{
-                        int index = -1;
-                        for (int i = 0; i < menuArr.size(); i++){
-                            if ((menuArr.get(i)).getName().equals(name)){
-                                index = i;
-                                break;
-                            }
-                        }
-                    menuArr.remove(index);
-                }catch(IndexOutOfBoundsException ex){
-                        System.out.println("Menu not found");
-                }
-                saveMenu(menuArr);
-                System.out.println("delete menu success");
-       
-        
-    }
+//    public void deleteMenu(int row, String name){
+//        ArrayList<Menu> menuArr = loadMenu();
+//                try{
+//                        int index = -1;
+//                        for (int i = 0; i < menuArr.size(); i++){
+//                            if ((menuArr.get(i)).getName().equals(name)){
+//                                index = i;
+//                                break;
+//                            }
+//                        }
+//                    menuArr.remove(index);
+//                    saveMenu(<Menu>menuArr);
+//                }catch(IndexOutOfBoundsException ex){
+//                        System.out.println("Menu not found");
+//                }
+//                
+//                System.out.println("delete menu success");
+//       
+//        
+   // }
     //update table
     public Menu findMenu(String name){
         ArrayList<Menu> menuArr = loadMenu();

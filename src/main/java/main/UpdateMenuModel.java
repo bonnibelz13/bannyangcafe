@@ -57,13 +57,13 @@ public class UpdateMenuModel {
                 menu.setName(view.getMenuName().getText());
                 menu.setPrice(view.getPrice().getText());
                 menu.setDescription(view.getDescription().getText());
-                menu.setImage((ImageIcon)view.getImgLabel().getIcon());
+               // menu.setImage((ImageIcon)view.getImgLabel().getIcon());
                 
                 menuArr.set(index, menu);
                 }catch(IndexOutOfBoundsException e){
                     System.out.println("User not found");
                 }
-                md.saveMenu(menuArr);
+               // md.saveMenu(menuArr);
               
                 JOptionPane.showConfirmDialog(null, "Update Menu success!", "Notification", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
                 

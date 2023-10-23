@@ -36,9 +36,9 @@ public class UpdateMenuCtrl implements ActionListener{
         view.getDescription().setText(menu.getDescription());
        
         // img to fit the jlab
-        view.getImgLabel().setIcon(new ImageIcon((menu.getImage()).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
-        view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        view.setVisible(true);
+//        view.getImgLabel().setIcon(new ImageIcon((menu.getImage()).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
+//        view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+//        view.setVisible(true);
     }
     
 

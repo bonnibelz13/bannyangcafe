@@ -2,12 +2,15 @@
 package main;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.file.Files;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Account;
 
 /**
  *
@@ -17,14 +20,17 @@ public class ManageMenuCtrl implements ActionListener {
     ManageMenuUI manageMenuUI;
     MainCtrl mainCtrl;
     ManageMenuModel model;
-    String imgPath;
+   // String imgPath;
+    File img_file;
+    Account user;
     ArrayList <Menu>menuArr =new ArrayList<Menu>();
 
     DefaultTableModel tableModel;
 
-    public ManageMenuCtrl(MainCtrl mainCtrl){
+    public ManageMenuCtrl(MainCtrl mainCtrl, Account user){
         initcomponents();
         this.mainCtrl = mainCtrl;
+        this.user = user;
     
     }
     public void initcomponents(){
@@ -36,9 +42,10 @@ public class ManageMenuCtrl implements ActionListener {
         manageMenuUI.getBackBtn().addActionListener((ActionListener) this);
         manageMenuUI.getUpdateMenuBtn().addActionListener((ActionListener) this);
         manageMenuUI.getDelMenuBtn().addActionListener((ActionListener) this);
-        menuArr = model.loadMenu();
+        //menuArr = model.loadMenu();
         //set table
-        model.loadTable(menuArr);
+        //model.loadTable(menuArr);
+        model.findUserID(user);
 
         
         
@@ -63,7 +70,7 @@ public class ManageMenuCtrl implements ActionListener {
         
         if (ev.getSource() == manageMenuUI.getAddImgBtn()){
             model.UploadPicture();
-            this.imgPath = model.getImagePath();
+            this.img_file = model.getImageFile();
             
         }
         
@@ -72,27 +79,39 @@ public class ManageMenuCtrl implements ActionListener {
         //------
         if (ev.getSource()== manageMenuUI.getAddMenuBtn()){
             
-            ImageIcon img = model.setMenuImg(imgPath);
-            String name = manageMenuUI.getMenuName().getText();
-            String price = manageMenuUI.getPrice().getText();
-            String des = manageMenuUI.getDesciption().getText();
+            //ImageIcon img = model.setMenuImg(imgPath);
+         
             boolean checkPrice = ManageMenuModel.isNumeric((manageMenuUI.getPrice().getText()));
-            boolean isChecked = model.checkMenu(name);
-            if(!name.equals("") && img != null && !price.equals("") && !des.equals("") && isChecked && checkPrice){
-                
-                //create new Menu obj
-                Menu newMenu = new Menu(name, price, des, img); 
-                menuArr = model.loadMenu();
-                menuArr.add(newMenu);
-                //save menu into file
-                model.saveMenu(menuArr);
+            boolean isChecked = model.checkMenu(manageMenuUI.getMenuName().getText());
+            if(!manageMenuUI.getMenuName().getText().equals("") && manageMenuUI.getImageLabel().getIcon() != null && 
+               !manageMenuUI.getPrice().getText().equals("") && !manageMenuUI.getDesciption().getText().equals("") && isChecked && checkPrice){
+                //create new Menu
+                try{
+                       Menu newMenu = new Menu();
+                       newMenu.setName(manageMenuUI.getMenuName().getText());
+                       newMenu.setPrice(manageMenuUI.getPrice().getText());
+                       newMenu.setDescription(manageMenuUI.getDesciption().getText());
+                       newMenu.setImage(Files.readAllBytes(img_file.toPath()));
+                      if(model.saveMenu(newMenu)){
+                          JOptionPane.showMessageDialog(null, "Add menu success!");
+                      }
+
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+               // Menu newMenu = new Menu(name, price, des, img); 
+//                menuArr = model.loadMenu();
+//                menuArr.add(newMenu);
+//                //save menu into file
+//                model.saveMenu(menuArr);
+
                 //cleardata
                 manageMenuUI.getImageLabel().setIcon(null);
                 manageMenuUI.getMenuName().setText("");
                 manageMenuUI.getPrice().setText("");
                 manageMenuUI.getDesciption().setText("");
-                //model.clearTable();
-                model.addMenuIntoTable(newMenu);
+
+               // model.addMenuIntoTable(newMenu);
                 System.out.println("save and clear");
                 
                 manageMenuUI.revalidate();
@@ -121,7 +140,8 @@ public class ManageMenuCtrl implements ActionListener {
                 String name = (String)manageMenuUI.getMenuTable().getModel().getValueAt(row, 1);
                 
                 //remove from file
-                model.deleteMenu(row, name);
+                //------deletemenu----------
+               // model.deleteMenu(row, name);
                 
                 //success
                 JOptionPane.showMessageDialog(null, "The menu has been deleted");

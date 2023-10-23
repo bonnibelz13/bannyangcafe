@@ -36,7 +36,7 @@ public class LoginModel {
         
         try {
             
-            String sql = " SELECT * FROM user WHERE username=? AND password=? ";
+            String sql = "SELECT * FROM user WHERE username=? AND password=? ";
             PreparedStatement pst = con.prepareCall(sql);
             
             pst.setString(1, username);
