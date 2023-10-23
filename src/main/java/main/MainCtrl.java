@@ -69,6 +69,7 @@ public class MainCtrl {
             System.out.println("In ViewSale");
         }
         else if (to.equals(new String("ManageMenu")) && from.equals("null")) {
+            this.manageMenuCtrl = new ManageMenuCtrl(this, user);
             mainUI.remove(homeCtrl.getPanel());
             mainUI.add(manageMenuCtrl.getPanel());
             mainUI.revalidate();
@@ -86,6 +87,7 @@ public class MainCtrl {
         } else if (to.equals(new String("CreateOrder"))) {
             if (from.equals("null")) {
                 mainUI.remove(homeCtrl.getPanel());
+                this.manageMenuCtrl = new ManageMenuCtrl(this, user);
                 
             } else if (from.equals(new String("Checkout"))) {
                 mainUI.remove(checkoutCtrl.getPanel());
@@ -112,6 +114,15 @@ public class MainCtrl {
             mainUI.add(homeCtrl.getPanel());
             mainUI.revalidate();
             mainUI.repaint();
+        }
+        else if (to.equals(new String("ManageMenu"))){
+            if(from.equals("ManageMenu")){
+                mainUI.remove(manageMenuCtrl.getPanel());
+                this.manageMenuCtrl = new ManageMenuCtrl(this, user);
+                mainUI.add(this.manageMenuCtrl.getPanel());
+                mainUI.revalidate();
+                 mainUI.repaint();
+            }
         }
     }
      

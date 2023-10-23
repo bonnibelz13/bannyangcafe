@@ -46,6 +46,7 @@ public class ManageMenuUI extends javax.swing.JFrame {
         updateMenuBtn = new javax.swing.JButton();
         addMenuBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        refreshBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +140,16 @@ public class ManageMenuUI extends javax.swing.JFrame {
         backBtn.setText("Back");
         panel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        refreshBtn.setBackground(new java.awt.Color(153, 204, 255));
+        refreshBtn.setFont(new java.awt.Font("Angsana New", 1, 28)); // NOI18N
+        refreshBtn.setText("Refresh");
+        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBtnActionPerformed(evt);
+            }
+        });
+        panel.add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 660, 150, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,6 +163,10 @@ public class ManageMenuUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_refreshBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,8 +220,15 @@ public class ManageMenuUI extends javax.swing.JFrame {
     private javax.swing.JTable menuTable;
     private javax.swing.JPanel panel;
     private javax.swing.JTextField price;
+    private javax.swing.JButton refreshBtn;
     private javax.swing.JButton updateMenuBtn;
     // End of variables declaration//GEN-END:variables
+    public JButton getRefreshBtn(){
+        return this.refreshBtn;
+    }
+    public void setRefreshBtn(JButton refreshBtn){
+        this.refreshBtn = refreshBtn;
+    }
     public JButton getUpdateMenuBtn(){
         return this.updateMenuBtn;
     }

@@ -43,6 +43,7 @@ public class ManageMenuCtrl implements ActionListener {
         manageMenuUI.getBackBtn().addActionListener((ActionListener) this);
         manageMenuUI.getUpdateMenuBtn().addActionListener((ActionListener) this);
         manageMenuUI.getDelMenuBtn().addActionListener((ActionListener) this);
+        manageMenuUI.getRefreshBtn().addActionListener((ActionListener) this);
         //menuArr = model.loadMenu();
         //set table
         
@@ -56,6 +57,7 @@ public class ManageMenuCtrl implements ActionListener {
     public JPanel getPanel(){
         return manageMenuUI.getPanel();
     }
+    
         
 
     @Override
@@ -178,9 +180,12 @@ public class ManageMenuCtrl implements ActionListener {
             System.out.println("Home Open...");
             mainCtrl.setView("Home", "ManageMenu");
         }
-        if (ev.getSource().equals(manageMenuUI.getBackBtn())) {
-            System.out.println("Home Open...");
-            mainCtrl.setView("Home", "ManageMenu");
+        //-------
+        //refresh
+        //-------
+        if (ev.getSource().equals(manageMenuUI.getRefreshBtn())) {
+            System.out.println("refresh..");
+            mainCtrl.setView("ManageMenu", "ManageMenu");
         }
        
     }

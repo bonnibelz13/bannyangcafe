@@ -80,13 +80,14 @@ public class UpdateMenuCtrl implements ActionListener{
                 }
                 
                 if(model.updateMenu(menu)){
-                    JOptionPane.showMessageDialog(null, "Update menu success!");
+                    JOptionPane.showMessageDialog(null, "Update menu success, please refresh!");
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "some thing error");
                 }
            // model.updateMenu(menu);
             view.dispose();
+            
             
         }
     }
