@@ -1,11 +1,8 @@
 
 package main;
 
-import model.db;
 import model.Account;
-import static banyang.Connection.generateUUID;
-import java.sql.Statement;
-//import com.google.firebase.database.*;
+
 import java.util.concurrent.CompletableFuture;
 
 
@@ -20,11 +17,6 @@ import model.AccountDao;
 
 public class SignupModel {
     
-//    private DatabaseReference mDatabase;
-//    
-//    public SignupModel(DatabaseReference mDatabase) {
-//        this.mDatabase = mDatabase;
-//    }
     AccountDao dao;
     
     public SignupModel(AccountDao dao) {
@@ -47,18 +39,13 @@ public class SignupModel {
     }
     
 
-    private void registerNewUser(String email, String username, String password, String conpassword){
+    private void registerNewUser(String email, String username, String password){
         Account user = new Account();
         
-//        String id = generateUUID();
-//        
-//        user.setId_user(id);
         user.setEmail(email);
         user.setUsername(username);
         user.setPassword(password);
 
-        
-//        System.out.println(id);
         System.out.println(user.getEmail());
         System.out.println(user.getUsername());
         System.out.println(user.getPassword());
@@ -79,7 +66,7 @@ public class SignupModel {
         if (dao.isUsernameExist(username)){
             isValidFuture.complete("usernameExisted");
         } else {
-            registerNewUser(email, username, password, conpassword);
+            registerNewUser(email, username, password);
             System.out.println("Sign Up Success");
             isValidFuture.complete("Success");
         }

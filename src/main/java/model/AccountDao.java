@@ -9,6 +9,7 @@ import java.util.logging.Logger;
  *
  * @author baibu
  */
+
 public class AccountDao {
     
     Connection con = db.getConnection();

@@ -119,8 +119,10 @@ public class ManageMenuCtrl implements ActionListener {
                 DefaultTableModel tableModel = (DefaultTableModel) manageMenuUI.getMenuTable().getModel();
                 tableModel.removeRow(row);
                 String name = (String)manageMenuUI.getMenuTable().getModel().getValueAt(row, 1);
+                
                 //remove from file
                 model.deleteMenu(row, name);
+                
                 //success
                 JOptionPane.showMessageDialog(null, "The menu has been deleted");
                 manageMenuUI.getMenuTable().revalidate();

@@ -2,12 +2,10 @@
 package main;
 
 
-//import com.google.firebase.FirebaseApp;
-//import com.google.firebase.database.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-//import java.io.IOException;
+
 import javax.swing.JOptionPane;
 import model.AccountDao;
  
@@ -15,19 +13,13 @@ import model.AccountDao;
  *
  * @author User
  */
+
 public class SignupCtrl implements ActionListener {
     SignupUI signupUI;
     SignupModel signupModel;
     
     
     public SignupCtrl(){
-//        try {
-//            Connection.initFirebase();
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-        
-//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         this.signupModel = new SignupModel(new AccountDao());
 
         initComponents();
@@ -71,6 +63,7 @@ public class SignupCtrl implements ActionListener {
             signupUI.getjLabel_Email_Message().setText("Please enter email.");
             signupUI.getjLabel_Username_Message().setText("Please enter username.");
             signupUI.getjLabel_Password_Message().setText("Please enter password.");
+            signupUI.getjLabel_ConPassword_Message().setText("Please enter confirmpassword.");
 
             signupUI.getjLabel_Email_Message().setVisible(false);
             signupUI.getjLabel_Username_Message().setVisible(false);
@@ -83,6 +76,7 @@ public class SignupCtrl implements ActionListener {
                 // handle invalid email format
                 signupUI.getjLabel_Email_Message().setVisible(true);
                 signupUI.getjLabel_Email_Message().setText("Invalid email format!");
+                return;
             }
 
 
@@ -90,17 +84,17 @@ public class SignupCtrl implements ActionListener {
                 // handle invalid username format
                 signupUI.getjLabel_Username_Message().setVisible(true);
                 signupUI.getjLabel_Username_Message().setText("Invalid username format!");
+                return;
 
-
-            } if (password.trim().isEmpty()){
+            } if (password.trim().isEmpty()) {
+                System.out.println("Enter Password please.");
                 signupUI.getjLabel_Password_Message().setVisible(true);
-
-
-
-            } else if (!password.equals(conpassword)){
+                return;
+  
+            } if (!password.equals(conpassword)){
                 signupUI.getjLabel_ConPassword_Message().setVisible(true);
                 signupUI.getjLabel_ConPassword_Message().setText("The passwords do not match.");
-
+                return;
 
             
                 
@@ -110,7 +104,7 @@ public class SignupCtrl implements ActionListener {
                 signupModel.checkData(signupUI.getEmail().getText(), signupUI.getUsername().getText(), String.valueOf(signupUI.getPassword1().getPassword()), String.valueOf(signupUI.getPassword2().getPassword())).thenAccept(isValid -> {
                 if (isValid.equals("Success")) {
                     // SignUp Success
-//                    JOptionPane.showMessageDialog(null, "Sign Up Successfully!");
+
                     signupUI.getEmail().setText("");
                     signupUI.getUsername().setText("");
                     signupUI.getPassword1().setText("");
@@ -137,9 +131,6 @@ public class SignupCtrl implements ActionListener {
 
         }
         if(ev.getSource() == signupUI.getLoginbtn()){
-            // don't forget to close old Firebase from this frame before open other Frame
-//            FirebaseApp.getInstance().delete();
-            
             new LoginCtrl();
             signupUI.dispose();
             

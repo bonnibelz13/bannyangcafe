@@ -6,24 +6,25 @@ import model.db;
 import model.Account;
 
 
-//import com.google.firebase.database.*;
 import java.sql.*;
 import java.util.concurrent.CompletableFuture;
 
 import javax.swing.JOptionPane;
+import model.AccountDao;
 
 /**
  *
  * @author baibu
  */
+
 public class LoginModel {
-//    private DatabaseReference mDatabase;
+
     private Account user;
-    Connection con = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
+    AccountDao dao;
+
     
-    public LoginModel() {
+    public LoginModel(AccountDao dao) {
+        this.dao = dao;
 
     }
    
@@ -31,17 +32,17 @@ public class LoginModel {
     public CompletableFuture<Account> checkAccount(String username, String password) {
         CompletableFuture<Account> userFuture = new CompletableFuture<>();
         
-        con = db.getConnection();
+        Connection con = db.getConnection();
         
         try {
             
             String sql = " SELECT * FROM user WHERE username=? AND password=? ";
-            pst = con.prepareCall(sql);
+            PreparedStatement pst = con.prepareCall(sql);
             
             pst.setString(1, username);
             pst.setString(2, password);
             
-            rs = pst.executeQuery();
+            ResultSet rs = pst.executeQuery();
             
             if (rs.next()) {
                 System.out.println("Login Successful!");

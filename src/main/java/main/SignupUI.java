@@ -47,7 +47,7 @@ public class SignupUI extends javax.swing.JFrame {
         jLabel_Username_Message = new javax.swing.JLabel();
         jLabel_Password_Message = new javax.swing.JLabel();
         jLabel_ConPassword_Message = new javax.swing.JLabel();
-        password1 = new javax.swing.JPasswordField();
+        conpassword = new javax.swing.JPasswordField();
         password2 = new javax.swing.JPasswordField();
         loginbtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -122,14 +122,14 @@ public class SignupUI extends javax.swing.JFrame {
         jLabel_ConPassword_Message.setForeground(new java.awt.Color(255, 0, 0));
         jPanel2.add(jLabel_ConPassword_Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 536, 301, 25));
 
-        password1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 14)); // NOI18N
-        password1.setForeground(new java.awt.Color(51, 51, 51));
-        password1.addActionListener(new java.awt.event.ActionListener() {
+        conpassword.setFont(new java.awt.Font("Microsoft Tai Le", 1, 14)); // NOI18N
+        conpassword.setForeground(new java.awt.Color(51, 51, 51));
+        conpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                password1ActionPerformed(evt);
+                conpasswordActionPerformed(evt);
             }
         });
-        jPanel2.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 350, 40));
+        jPanel2.add(conpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 350, 40));
 
         password2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 14)); // NOI18N
         password2.setForeground(new java.awt.Color(51, 51, 51));
@@ -166,9 +166,9 @@ public class SignupUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void password1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password1ActionPerformed
+    private void conpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conpasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_password1ActionPerformed
+    }//GEN-LAST:event_conpasswordActionPerformed
 
     private void password2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password2ActionPerformed
         // TODO add your handling code here:
@@ -209,7 +209,7 @@ public class SignupUI extends javax.swing.JFrame {
         });
     }
     public JPasswordField getPassword1() {
-        return password1;
+        return conpassword;
     }
 
     public JPasswordField getPassword2() {
@@ -250,6 +250,7 @@ public class SignupUI extends javax.swing.JFrame {
         return jLabel_Username_Message;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField conpassword;
     private javax.swing.JTextField email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -266,7 +267,6 @@ public class SignupUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton loginbtn;
-    private javax.swing.JPasswordField password1;
     private javax.swing.JPasswordField password2;
     private javax.swing.JButton signupbtn;
     private javax.swing.JTextField username;

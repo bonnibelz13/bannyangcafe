@@ -13,28 +13,22 @@ import java.awt.event.ActionListener;
 //import com.google.firebase.FirebaseApp;
 
 import java.io.IOException;
+import model.AccountDao;
 
 /**
  *
  * @author User
  */
+
 public class LoginCtrl implements ActionListener {
     private LoginUI loginUI;
     private LoginModel loginModel;
-    //private DatabaseReference mDatabase;
     private Account user;
+    AccountDao dao;
     
     public LoginCtrl() {
-//        try {
-//            Connection.initFirebase();
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//        
-//        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
-//        loginModel = new LoginModel(mDatabase);
 
-        loginModel = new LoginModel();
+        loginModel = new LoginModel(dao);
         
         initComponents();
     }
@@ -86,8 +80,6 @@ public class LoginCtrl implements ActionListener {
         //---------------
         
         } else if(ev.getSource() == loginUI.getSignupbtn()){
-            // don't forget to close old Firebase from Login before open other Frame
-//            FirebaseApp.getInstance().delete();
             
             System.out.println("signup");
             new SignupCtrl();
