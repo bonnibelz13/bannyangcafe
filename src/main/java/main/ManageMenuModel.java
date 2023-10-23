@@ -167,7 +167,7 @@ public class ManageMenuModel {
         return true;
     }
     
-    public void loadTable(ArrayList<Menu> menuData){
+    public void loadTable(JTable table){
 //        table = view.getMenuTable();
 //        DefaultTableModel tableModel = (DefaultTableModel)table.getModel();
 //        for(int i = 0; i < menuData.size() && !menuData.isEmpty(); i++){
@@ -183,26 +183,24 @@ public class ManageMenuModel {
 //            view.getMenuTable().setRowHeight(60);
 //        }
         Connection con = db.getConnection();
-        String sql= ("SELECT menu_name, menu_pic, menu_price, menu_des FROM menu WHERE user_id = '" + user_id +"'" );
-        try (Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);)
-        {table = view.getMenuTable();
-         DefaultTableModel tableModel = (DefaultTableModel)table.getModel();
+        String sql= ("SELECT * FROM menu WHERE user_id = '"+ user_id+"' and status_id = 1");
+        try {Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            //table = view.getMenuTable();
+            DefaultTableModel tableModel = (DefaultTableModel)table.getModel();
             while(rs.next()){
-//                user_id = rs.getInt("id");
-//                System.out.println(user_id);
-                int row = table.getRowCount();
-                tableModel.addRow(new Object[0]);
-                tableModel.setValueAt(rs.getBytes("menu_pic"),row, 0);
-                tableModel.setValueAt(rs.getString("menu_name"),row, 1);
-                tableModel.setValueAt(rs.getString("menu_des"), row, 2);
-                tableModel.setValueAt(rs.getDouble("menu_price"), row, 3);
-
-                ImageRenderer imageRenderer = new ImageRenderer();
-                view.getMenuTable().getColumnModel().getColumn(0).setCellRenderer(imageRenderer);
-                view.getMenuTable().getColumnModel().getColumn(0).setPreferredWidth(60);
-                view.getMenuTable().setRowHeight(60);
+                Object[] row = new Object[4];
+                row[0] = rs.getBytes("menu_pic");
+                row[1] = rs.getString("menu_name");
+                row[2] = rs.getString("menu_des");
+                row[3] = rs.getDouble("menu_price");
+                tableModel.addRow(row);
             }
+                ImageRenderer imageRenderer = new ImageRenderer();
+                table.getColumnModel().getColumn(0).setCellRenderer(imageRenderer);
+                table.getColumnModel().getColumn(0).setPreferredWidth(60);
+                table.setRowHeight(60);
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

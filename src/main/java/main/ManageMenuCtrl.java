@@ -45,8 +45,9 @@ public class ManageMenuCtrl implements ActionListener {
         manageMenuUI.getDelMenuBtn().addActionListener((ActionListener) this);
         //menuArr = model.loadMenu();
         //set table
-        //model.loadTable(menuArr);
+        
         model.findUserID(user);
+        model.loadTable(manageMenuUI.getMenuTable());
 
         
 
