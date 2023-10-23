@@ -36,7 +36,9 @@ public class ManageMenuCtrl implements ActionListener {
         manageMenuUI.getBackBtn().addActionListener((ActionListener) this);
         manageMenuUI.getUpdateMenuBtn().addActionListener((ActionListener) this);
         manageMenuUI.getDelMenuBtn().addActionListener((ActionListener) this);
-        
+        menuArr = model.loadMenu();
+        //set table
+        model.loadTable(menuArr);
 
         
         
@@ -142,7 +144,7 @@ public class ManageMenuCtrl implements ActionListener {
                 new UpdateMenuCtrl(menu);
                 System.out.println("open updateMenu");
             }
-              else if(manageMenuUI.getMenuTable().getSelectedRow() == 0){
+            else if(manageMenuUI.getMenuTable().getSelectedRow() == 0){
                 JOptionPane.showMessageDialog(null, "Please select menu");
             }
       

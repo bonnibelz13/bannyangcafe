@@ -76,8 +76,8 @@ public class ManageMenuModel {
             ObjectOutputStream oout = new ObjectOutputStream(fOut);){
             oout.writeObject(menu);
             System.out.println("save menu data success");
-        }catch(IOException e){
-        System.out.println(e); 
+        }catch(IOException | IndexOutOfBoundsException e){
+            System.out.println(e); 
         }
     }
     public boolean checkMenu(String name){

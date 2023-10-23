@@ -47,7 +47,7 @@ public class UpdateMenuModel {
         ArrayList<Menu> menuArr = md.loadMenu();
         try{
                 int index = -1;
-                for (int i = 0; i < menuArr.size() && menuArr.size() != 0; i++){
+                for (int i = 0; i < menuArr.size() && !menuArr.isEmpty(); i++){
                     if ((menuArr.get(i)).getName().equals(menu.getName())){
                         index = i;
                         break;
