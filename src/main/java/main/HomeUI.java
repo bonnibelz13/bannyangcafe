@@ -4,8 +4,11 @@
  */
 package main;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -34,12 +37,27 @@ public class HomeUI extends javax.swing.JFrame {
         return this.btnViewSaleReport;
     }
 
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+
     
     public JLabel getCurrentusername() {
         return currentusername;
     }
 
-    
+    public JLabel getjDate() {
+        return jDate;
+    }
+
+    public JLabel getjPMAM() {
+        return jPMAM;
+    }
+
+    public JLabel getjTime() {
+        return jTime;
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,9 +77,10 @@ public class HomeUI extends javax.swing.JFrame {
         btnViewSaleReport = new javax.swing.JButton();
         Bannyang = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jDate = new javax.swing.JLabel();
+        jPMAM = new javax.swing.JLabel();
         currentusername = new javax.swing.JLabel();
+        jTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,17 +158,21 @@ public class HomeUI extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(530, 800));
         panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 820));
 
-        jLabel1.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
-        jLabel1.setText("Saturday, 21-10-2023");
-        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, 160, -1));
+        jDate.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
+        jDate.setText("Saturday, 21-10-2023");
+        panel.add(jDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, 160, -1));
 
-        jLabel4.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
-        jLabel4.setText("00:00:00 PM");
-        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 110, -1));
+        jPMAM.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
+        jPMAM.setText("PM");
+        panel.add(jPMAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 60, -1));
 
         currentusername.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         currentusername.setText("welcome, username");
-        panel.add(currentusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 220, 30));
+        panel.add(currentusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 290, 30));
+
+        jTime.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
+        jTime.setText("00:00:00");
+        panel.add(jTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,10 +245,11 @@ public class HomeUI extends javax.swing.JFrame {
     private javax.swing.JButton btnViewSaleReport;
     private javax.swing.JPanel copyright_panel;
     private javax.swing.JLabel currentusername;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jDate;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jPMAM;
+    private javax.swing.JLabel jTime;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 

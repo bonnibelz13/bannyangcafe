@@ -1,6 +1,7 @@
 
 package main;
 
+import javax.swing.JOptionPane;
 import model.Account;
 
 /**
@@ -45,6 +46,19 @@ public class MainCtrl {
     public ManageMenuCtrl getManageMenuCtrl(){
         return manageMenuCtrl;
     }
+    
+    public void logout() {
+        int option = JOptionPane.showConfirmDialog(null, "Do you want to Logout?", "Confirm Logout", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            // Close the MainUI
+            mainUI.dispose();
+
+
+            // Open the LoginUI
+            LoginCtrl loginCtrl = new LoginCtrl();
+        }
+    }
+    
     
     public void setView(String to, String from) {
         if (to.equals(new String("ViewSaleReport")) && from.equals("null")) {
