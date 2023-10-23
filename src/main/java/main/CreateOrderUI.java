@@ -5,7 +5,9 @@
 package main;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -31,12 +33,10 @@ public class CreateOrderUI extends javax.swing.JFrame {
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        menuTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         orderTable = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        total = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         quantity = new javax.swing.JTextField();
         removeBtn = new javax.swing.JButton();
@@ -47,24 +47,13 @@ public class CreateOrderUI extends javax.swing.JFrame {
         searchTxt = new javax.swing.JTextField();
         btnFind = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        menuTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel.setBackground(new java.awt.Color(238, 235, 234));
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        menuTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
-        menuTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Image", "Menu ID", "Name", "Price"
-            }
-        ));
-        jScrollPane1.setViewportView(menuTable);
-
-        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 188, 320, 480));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel1.setText("Select Menu:");
@@ -76,16 +65,16 @@ public class CreateOrderUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Image", "Menu ID", "Name", "Price", "Quantity"
+                "Image", "Name", "Description", "Price", "Quantity", "Total Price"
             }
         ));
         jScrollPane2.setViewportView(orderTable);
 
-        panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 390, 470));
+        panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 410, 470));
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel2.setText("Total (฿) : 0.0");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 270, 40));
+        total.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        total.setText("Total (฿): 0.0");
+        panel.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 210, 40));
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel3.setText("Quantity:");
@@ -135,7 +124,7 @@ public class CreateOrderUI extends javax.swing.JFrame {
         panel.add(copyright_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 780, 1130, 40));
 
         addBtn.setText("Add to Order");
-        panel.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 170, 30));
+        panel.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 170, 70));
 
         searchTxt.setText("Search..");
         panel.add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 230, -1));
@@ -153,6 +142,19 @@ public class CreateOrderUI extends javax.swing.JFrame {
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("Back");
         panel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 720, -1, -1));
+
+        menuTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
+        menuTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Image", "Name", "Description", "Price"
+            }
+        ));
+        jScrollPane1.setViewportView(menuTable);
+
+        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 370, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,7 +224,6 @@ public class CreateOrderUI extends javax.swing.JFrame {
     private javax.swing.JButton checkoutBtn;
     private javax.swing.JPanel copyright_panel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
@@ -233,6 +234,7 @@ public class CreateOrderUI extends javax.swing.JFrame {
     private javax.swing.JTextField quantity;
     private javax.swing.JButton removeBtn;
     private javax.swing.JTextField searchTxt;
+    private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 
     public JButton getAddBtn() {
@@ -279,6 +281,22 @@ public class CreateOrderUI extends javax.swing.JFrame {
     }
     public void setQuantity(JTextField quantity){
         this.quantity = quantity;
+    }
+
+    public JTable getMenuTable() {
+        return menuTable;
+    }
+
+    public JTable getOrderTable() {
+        return orderTable;
+    }
+
+    public JTextField getSearchTxt() {
+        return searchTxt;
+    }
+
+    public JLabel getTotal() {
+        return total;
     }
 
 }

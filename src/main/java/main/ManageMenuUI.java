@@ -109,7 +109,7 @@ public class ManageMenuUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Image", "Name", "Price", "Description"
+                "Image", "Name", "Description", "Price"
             }
         ));
         jScrollPane1.setViewportView(menuTable);

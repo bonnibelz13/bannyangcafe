@@ -30,7 +30,7 @@ public class MainCtrl {
         
         this.viewSaleReportCtrl = new ViewSaleReportCtrl(this);
         this.manageMenuCtrl = new ManageMenuCtrl(this, user);
-        this.createOrderCtrl = new CreateOrderCtrl(this);
+        this.createOrderCtrl = new CreateOrderCtrl(this, user);
 //        this.checkoutCtrl = new CheckoutCtrl(this);
 
         

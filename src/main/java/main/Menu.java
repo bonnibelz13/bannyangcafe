@@ -23,7 +23,7 @@ public class Menu implements Serializable {
     }
     public Menu( String name , String price, String description, byte[] image){
         this.name = name;
-        this.price =price;
+        this.price = price;
         this.description = description;
         this.image = image;
         
