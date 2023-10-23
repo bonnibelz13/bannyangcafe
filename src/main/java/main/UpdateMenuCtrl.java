@@ -18,12 +18,12 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class UpdateMenuCtrl implements ActionListener{
-    UpdateMenuUI view;
-    UpdateMenuModel model;
-    ArrayList<Menu> menuArr;
-    Menu menu;
-    String name;
-    File img_file;
+    private UpdateMenuUI view;
+    private UpdateMenuModel model;
+    //private ArrayList<Menu> menuArr;
+    private Menu menu;
+    private String name;
+    private File img_file;
     public UpdateMenuCtrl(Menu menu){
         this.menu = menu;
         initComponents();
@@ -62,30 +62,30 @@ public class UpdateMenuCtrl implements ActionListener{
         // save update
         //----------
         if(ev.getSource() ==  view.getSaveBtn()){
-            Menu newMenu = new Menu();
+           // Menu newMenu = new Menu();
             if(!view.getMenuName().getText().equals("") && view.getImgLabel().getIcon() != null && 
               !view.getPrice().getText().equals("") && !view.getDescription().getText().equals("")){
                 //create new Menu
                 try{
-                       newMenu.setName(view.getMenuName().getText());
-                       newMenu.setPrice(view.getPrice().getText());
-                       newMenu.setDescription(view.getDescription().getText());
-                       if(img_file == null){
-                           newMenu.setImage(menu.getImage());
-                       }else{
-                         newMenu.setImage(Files.readAllBytes(img_file.toPath()));
+                       menu.setName(view.getMenuName().getText());
+                       menu.setPrice(view.getPrice().getText());
+                       menu.setDescription(view.getDescription().getText());
+                       if(img_file != null){
+                           menu.setImage(Files.readAllBytes(img_file.toPath())); 
                        }
-                      if(model.updateMenu(newMenu)){
-                          JOptionPane.showMessageDialog(null, "Update menu success!");
-                      }
-                      else{
-                          JOptionPane.showMessageDialog(null, "some thing error");
-                      }
+                       
 
                 }catch(Exception e){
                     e.printStackTrace();
                 }
-            model.updateMenu(menu);
+                
+                if(model.updateMenu(menu)){
+                    JOptionPane.showMessageDialog(null, "Update menu success!");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "some thing error");
+                }
+           // model.updateMenu(menu);
             view.dispose();
             
         }
