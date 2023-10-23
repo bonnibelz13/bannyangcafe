@@ -210,8 +210,7 @@ public class ManageMenuModel {
         DefaultTableModel tableModel = (DefaultTableModel)view.getMenuTable().getModel();
         tableModel.addRow(new Object[]{menu.getImage(),menu.getName(), menu.getDescription(), menu.getPrice()});
     }
-
-//    public void deleteMenu(int row, String name){
+    public void deleteMenu(String name){
 //        ArrayList<Menu> menuArr = loadMenu();
 //                try{
 //                        int index = -1;
@@ -228,20 +227,53 @@ public class ManageMenuModel {
 //                }
 //                
 //                System.out.println("delete menu success");
-//       
-//        
-   // }
-    //update table
-//    public Menu findMenu(String name){
-//        ArrayList<Menu> menuArr = loadMenu();
-//        for(int i = 0; i< menuArr.size() && !menuArr.isEmpty(); i++){
-//            if(menuArr.get(i).getName().equals(name)){
-//                //return menuArr
-//                return (Menu)menuArr.get(i);
-//                
-//            }
+        
+//        try(FileOutputStream fOut = new FileOutputStream("MenuData.dat");
+//            ObjectOutputStream oout = new ObjectOutputStream(fOut);){
+//            oout.writeObject(menu);
+//            System.out.println("save menu data success");
+//        }catch(IOException | IndexOutOfBoundsException e){
+//            System.out.println(e); 
 //        }
-//        return null;
-//    }
+        String sql = ("UPDATE menu SET status_id = 2 WHERE menu_name = '"+ name+"'");
+        Connection con = db.getConnection();
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            int rowsAffected = ps.executeUpdate();
+            System.out.println("rowsAffected: "+ rowsAffected);
+            //return rowsAffected > 0;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+           // return false;
+        
+    }
+       
+        
+    }
+    //update table
+    public Menu findMenu(String name){
+        Connection con = db.getConnection();
+        String sql= ("SELECT * FROM menu WHERE menu_name = '" + name+"' AND user_id ='"+this.user_id+"'");
+
+        try (Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);)
+        { Menu menu = new Menu();
+            while(rs.next()){
+            menu.setName(rs.getString("menu_name"));
+            menu.setDescription(rs.getString("menu_des"));
+            menu.setPrice(String.valueOf(rs.getDouble("menu_price")));
+            menu.setImage(rs.getBytes("menu_pic"));
+            }
+            return menu;
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+            
+            return null;
+        }
+        
+    }
+    
     
 }

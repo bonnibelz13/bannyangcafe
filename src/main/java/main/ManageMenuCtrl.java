@@ -79,17 +79,21 @@ public class ManageMenuCtrl implements ActionListener {
          
             boolean checkPrice = ManageMenuModel.isNumeric((manageMenuUI.getPrice().getText()));
             boolean isChecked = model.checkMenu(manageMenuUI.getMenuName().getText());
+            Menu newMenu = new Menu();
             if(!manageMenuUI.getMenuName().getText().equals("") && manageMenuUI.getImageLabel().getIcon() != null && 
                !manageMenuUI.getPrice().getText().equals("") && !manageMenuUI.getDesciption().getText().equals("") && isChecked && checkPrice){
                 //create new Menu
                 try{
-                       Menu newMenu = new Menu();
+                       
                        newMenu.setName(manageMenuUI.getMenuName().getText());
                        newMenu.setPrice(manageMenuUI.getPrice().getText());
                        newMenu.setDescription(manageMenuUI.getDesciption().getText());
                        newMenu.setImage(Files.readAllBytes(img_file.toPath()));
                       if(model.saveMenu(newMenu)){
                           JOptionPane.showMessageDialog(null, "Add menu success!");
+                          model.addMenuIntoTable(newMenu);
+                          manageMenuUI.repaint();
+                           manageMenuUI.revalidate();
                       }
 
                 }catch(Exception e){
@@ -108,10 +112,10 @@ public class ManageMenuCtrl implements ActionListener {
                 manageMenuUI.getPrice().setText("");
                 manageMenuUI.getDesciption().setText("");
 
-               // model.addMenuIntoTable(newMenu);
+               
                 System.out.println("save and clear");
                 
-                manageMenuUI.revalidate();
+               
                 
             }
             else if(!isChecked){
@@ -133,20 +137,17 @@ public class ManageMenuCtrl implements ActionListener {
                 //remove from table
                 int row = manageMenuUI.getMenuTable().getSelectedRow();
                 DefaultTableModel tableModel = (DefaultTableModel) manageMenuUI.getMenuTable().getModel();
+                String name = (String) manageMenuUI.getMenuTable().getModel().getValueAt(row, 1);
+                System.out.println("name");
+                model.deleteMenu(name);
                 tableModel.removeRow(row);
-                String name = (String)manageMenuUI.getMenuTable().getModel().getValueAt(row, 1);
-                
-                //remove from file
-                //------deletemenu----------
-               // model.deleteMenu(row, name);
-                
-                //success
+
                 JOptionPane.showMessageDialog(null, "The menu has been deleted");
                 manageMenuUI.getMenuTable().revalidate();
                 manageMenuUI.getMenuTable().repaint();
- 
+                
             }
-            else if(manageMenuUI.getMenuTable().getSelectedRow() == 0){
+               else if(manageMenuUI.getMenuTable().getSelectedRow() == 0){
                 JOptionPane.showMessageDialog(null, "Please select menu");
             }
             
@@ -159,8 +160,10 @@ public class ManageMenuCtrl implements ActionListener {
             if(manageMenuUI.getMenuTable().getSelectedRow() != -1){
                 int row = manageMenuUI.getMenuTable().getSelectedRow();
                 String name = (String)manageMenuUI.getMenuTable().getModel().getValueAt(row, 1);
-//                Menu menu = model.findMenu(name);
-//                new UpdateMenuCtrl(menu);
+                System.out.println(name);
+                Menu menu = model.findMenu(name);
+                System.out.println(menu.getName());
+                new UpdateMenuCtrl(menu);
                 System.out.println("open updateMenu");
             }
             else if(manageMenuUI.getMenuTable().getSelectedRow() == 0){
