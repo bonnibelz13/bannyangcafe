@@ -1,7 +1,9 @@
 
 package main;
 
-import com.google.firebase.database.*;
+import model.db;
+import model.Account;
+//import com.google.firebase.database.*;
 import java.sql.*;
 import java.util.concurrent.CompletableFuture;
 
@@ -26,7 +28,7 @@ public class LoginModel {
     public CompletableFuture<Account> checkAccount(String username, String password) {
         CompletableFuture<Account> userFuture = new CompletableFuture<>();
         
-        con = db.mycon();
+        con = db.getConnection();
         
         try {
             

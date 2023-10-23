@@ -1,27 +1,26 @@
 
-package main;
+package model;
 
 /**
  *
  * @author baibu
  */
 public class Account {
-    private String id_user;
+//    private String id_user;
     private String username;
     private String email;
     private String password;
-    private String conpassword;
+//    private String conpassword;
 
     public Account() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
-        this("", "", "", "");
+        this("", "", "");
     }
 
-    public Account(String username, String email, String password, String conpassword) {
+    public Account(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.conpassword = conpassword;
       
     }
   
@@ -30,12 +29,12 @@ public class Account {
         //-------------------------
     
     
-    public String getId_user() {
-        return id_user;
-    }
-    public void setId_user(String id_user) {
-        this.id_user = id_user;
-    }
+//    public String getId_user() {
+//        return id_user;
+//    }
+//    public void setId_user(String id_user) {
+//        this.id_user = id_user;
+//    }
     public String getUsername() {
         return username;
     }
@@ -54,10 +53,10 @@ public class Account {
     public void setPassword(String password){
         this.password = password;
     }
-    public String getConPassword(){
-        return conpassword;
-    }
-    public void setConPassword(String conpass){
-        this.conpassword = conpassword;
-    }
+//    public String getConPassword(){
+//        return conpassword;
+//    }
+//    public void setConPassword(String conpass){
+//        this.conpassword = conpassword;
+//    }
 }

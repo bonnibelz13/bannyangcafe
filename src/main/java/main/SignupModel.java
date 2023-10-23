@@ -1,13 +1,17 @@
 
 package main;
 
+import model.db;
+import model.Account;
 import static banyang.Connection.generateUUID;
+import java.sql.Statement;
 //import com.google.firebase.database.*;
 import java.util.concurrent.CompletableFuture;
 
 
 import java.util.regex.*;
 import javax.swing.JOptionPane;
+import model.AccountDao;
 
 /**
  *
@@ -21,8 +25,10 @@ public class SignupModel {
 //    public SignupModel(DatabaseReference mDatabase) {
 //        this.mDatabase = mDatabase;
 //    }
+    AccountDao dao;
     
-    public SignupModel() {
+    public SignupModel(AccountDao dao) {
+        this.dao = dao;
 
     }
     
@@ -39,24 +45,44 @@ public class SignupModel {
         Matcher matcher = pattern.matcher(username);
         return matcher.matches();
     }
-    private void registerNewUser(String email, String username, String password, String conpassword){
-        
-        String id = generateUUID();
+    
 
+    private void registerNewUser(String email, String username, String password, String conpassword){
         Account user = new Account();
-        user.setId_user(id);
+        
+//        String id = generateUUID();
+//        
+//        user.setId_user(id);
         user.setEmail(email);
         user.setUsername(username);
         user.setPassword(password);
-        user.setConPassword(conpassword);
+
         
+//        System.out.println(id);
+        System.out.println(user.getEmail());
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
         
+        if (dao.insertAccount(user)) {
+            
+            JOptionPane.showMessageDialog(null, "Successfully!");
+        }
+
     }
     public CompletableFuture<String> checkData(String email, String username, String password, String conpassword) {
         
         CompletableFuture<String> isValidFuture = new CompletableFuture<>();
         
-        
+        if (dao.isEmailExist(email)) {
+            isValidFuture.complete("emailExisted");
+        }
+        if (dao.isUsernameExist(username)){
+            isValidFuture.complete("usernameExisted");
+        } else {
+            registerNewUser(email, username, password, conpassword);
+            System.out.println("Sign Up Success");
+            isValidFuture.complete("Success");
+        }
 
         return isValidFuture;
     }

@@ -1,6 +1,8 @@
 
 package main;
 
+import model.Account;
+
 /**
  *
  * @author Noppakorn

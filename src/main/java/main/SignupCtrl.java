@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 //import java.io.IOException;
 import javax.swing.JOptionPane;
+import model.AccountDao;
  
 /**
  *
@@ -27,7 +28,7 @@ public class SignupCtrl implements ActionListener {
 //        }
         
 //        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-//        signupModel = new SignupModel(databaseReference);
+        this.signupModel = new SignupModel(new AccountDao());
 
         initComponents();
     }
@@ -109,7 +110,7 @@ public class SignupCtrl implements ActionListener {
                 signupModel.checkData(signupUI.getEmail().getText(), signupUI.getUsername().getText(), String.valueOf(signupUI.getPassword1().getPassword()), String.valueOf(signupUI.getPassword2().getPassword())).thenAccept(isValid -> {
                 if (isValid.equals("Success")) {
                     // SignUp Success
-                    JOptionPane.showMessageDialog(null, "Sign Up Successfully!");
+//                    JOptionPane.showMessageDialog(null, "Sign Up Successfully!");
                     signupUI.getEmail().setText("");
                     signupUI.getUsername().setText("");
                     signupUI.getPassword1().setText("");
