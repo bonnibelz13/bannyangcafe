@@ -28,9 +28,10 @@ public class ManageMenuCtrl implements ActionListener {
     DefaultTableModel tableModel;
 
     public ManageMenuCtrl(MainCtrl mainCtrl, Account user){
-        initcomponents();
+       
         this.mainCtrl = mainCtrl;
         this.user = user;
+         initcomponents();
     
     }
     public void initcomponents(){
@@ -48,13 +49,7 @@ public class ManageMenuCtrl implements ActionListener {
         model.findUserID(user);
 
         
-        
-        
-        
-        
-        
-        
-        
+
         
     }
     public JPanel getPanel(){
@@ -99,6 +94,7 @@ public class ManageMenuCtrl implements ActionListener {
                 }catch(Exception e){
                     e.printStackTrace();
                 }
+            
                // Menu newMenu = new Menu(name, price, des, img); 
 //                menuArr = model.loadMenu();
 //                menuArr.add(newMenu);
@@ -162,8 +158,8 @@ public class ManageMenuCtrl implements ActionListener {
             if(manageMenuUI.getMenuTable().getSelectedRow() != -1){
                 int row = manageMenuUI.getMenuTable().getSelectedRow();
                 String name = (String)manageMenuUI.getMenuTable().getModel().getValueAt(row, 1);
-                Menu menu = model.findMenu(name);
-                new UpdateMenuCtrl(menu);
+//                Menu menu = model.findMenu(name);
+//                new UpdateMenuCtrl(menu);
                 System.out.println("open updateMenu");
             }
             else if(manageMenuUI.getMenuTable().getSelectedRow() == 0){

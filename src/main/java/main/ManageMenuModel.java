@@ -43,15 +43,17 @@ public class ManageMenuModel {
         //this.updateView = updateView;
     }
     public void findUserID(Account user){
+        System.out.println(user.getUsername());
+        //String
         Connection con = db.getConnection();
-        String sql= ("SELECT id FROM user WHERE username = " + user.getUsername() );
+        String sql= ("SELECT id FROM user WHERE username = '" + user.getUsername()+"'" );
 
         try (Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);)
         {while(rs.next()){
             user_id = rs.getInt("id");
             System.out.println(user_id);
-        }
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -81,9 +83,9 @@ public class ManageMenuModel {
         return this.img_file;
         
     }
-    public byte[] getImagePath(){
-        return this.imgPath;
-    }
+//    public byte[] getImagePath(){
+//        return this.imgPath;
+//    }
     public ImageIcon setMenuImg(String imgPath){
         ImageIcon img = new ImageIcon(imgPath);
         return new ImageIcon(img.getImage().getScaledInstance(60,  60, Image.SCALE_SMOOTH));
@@ -112,7 +114,6 @@ public class ManageMenuModel {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
-
             ps.setInt(1, user_id);
             ps.setString(2, menu.getName());
             ps.setString(3, menu.getDescription());
@@ -123,44 +124,35 @@ public class ManageMenuModel {
             int rowsAffected = ps.executeUpdate();
             
             return rowsAffected > 0;
-            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
             return false;
         }
     }
-    public boolean insertAccount(Account account){
-        String sql = "INSERT INTO user (email, username, password) VALUES (?,?,?)";
-        Connection con = db.getConnection();
-        PreparedStatement ps = null;
-
-        try {
-            ps = con.prepareStatement(sql);
-
-            ps.setString(1, account.getEmail());
-            ps.setString(2, account.getUsername());
-            ps.setString(3, account.getPassword());
-            
-            int rowsAffected = ps.executeUpdate();
-            
-            return rowsAffected > 0;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return false;
-        }
-    }
+//
     public boolean checkMenu(String name){
-        boolean ischecked = true;
-        ArrayList<Menu> menuArr = loadMenu();
-        for(int i = 0; i< menuArr.size() && !menuArr.isEmpty(); i++){
-            if(menuArr.get(i).getName().equals(name)){
-                ischecked = false;
+//        boolean ischecked = true;
+//        ArrayList<Menu> menuArr = loadMenu();
+//        for(int i = 0; i< menuArr.size() && !menuArr.isEmpty(); i++){
+//            if(menuArr.get(i).getName().equals(name)){
+//                ischecked = false;
+//            }
+//        }
+//        return ischecked;
+        Connection con = db.getConnection();
+        String sql= ("SELECT menu_name FROM menu WHERE menu_name = '" + name+"' AND user_id ='"+user_id+"'");
+
+        try (Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);)
+        {while(rs.next()){
+                System.out.println("already has this menu in db");
+                return false;
             }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        return ischecked;
-        
+        return true;
     }
     
     public static boolean isNumeric(String strNum) {
@@ -176,19 +168,43 @@ public class ManageMenuModel {
     }
     
     public void loadTable(ArrayList<Menu> menuData){
-        table = view.getMenuTable();
-        DefaultTableModel tableModel = (DefaultTableModel)table.getModel();
-        for(int i = 0; i < menuData.size() && !menuData.isEmpty(); i++){
-            int row = table.getRowCount();
-            tableModel.addRow(new Object[0]);
-            tableModel.setValueAt(menuData.get(i).getImage(),row, 0);
-            tableModel.setValueAt(menuData.get(i).getName(),row, 1);
-            tableModel.setValueAt((menuData.get(i)).getDescription(), row, 2);
-            tableModel.setValueAt((menuData.get(i)).getPrice(), row, 3);
-            ImageRenderer imageRenderer = new ImageRenderer();
-            view.getMenuTable().getColumnModel().getColumn(0).setCellRenderer(imageRenderer);
-            view.getMenuTable().getColumnModel().getColumn(0).setPreferredWidth(60);
-            view.getMenuTable().setRowHeight(60);
+//        table = view.getMenuTable();
+//        DefaultTableModel tableModel = (DefaultTableModel)table.getModel();
+//        for(int i = 0; i < menuData.size() && !menuData.isEmpty(); i++){
+//            int row = table.getRowCount();
+//            tableModel.addRow(new Object[0]);
+//            tableModel.setValueAt(menuData.get(i).getImage(),row, 0);
+//            tableModel.setValueAt(menuData.get(i).getName(),row, 1);
+//            tableModel.setValueAt((menuData.get(i)).getDescription(), row, 2);
+//            tableModel.setValueAt((menuData.get(i)).getPrice(), row, 3);
+//            ImageRenderer imageRenderer = new ImageRenderer();
+//            view.getMenuTable().getColumnModel().getColumn(0).setCellRenderer(imageRenderer);
+//            view.getMenuTable().getColumnModel().getColumn(0).setPreferredWidth(60);
+//            view.getMenuTable().setRowHeight(60);
+//        }
+        Connection con = db.getConnection();
+        String sql= ("SELECT menu_name, menu_pic, menu_price, menu_des FROM menu WHERE user_id = '" + user_id +"'" );
+        try (Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);)
+        {table = view.getMenuTable();
+         DefaultTableModel tableModel = (DefaultTableModel)table.getModel();
+            while(rs.next()){
+//                user_id = rs.getInt("id");
+//                System.out.println(user_id);
+                int row = table.getRowCount();
+                tableModel.addRow(new Object[0]);
+                tableModel.setValueAt(rs.getBytes("menu_pic"),row, 0);
+                tableModel.setValueAt(rs.getString("menu_name"),row, 1);
+                tableModel.setValueAt(rs.getString("menu_des"), row, 2);
+                tableModel.setValueAt(rs.getDouble("menu_price"), row, 3);
+
+                ImageRenderer imageRenderer = new ImageRenderer();
+                view.getMenuTable().getColumnModel().getColumn(0).setCellRenderer(imageRenderer);
+                view.getMenuTable().getColumnModel().getColumn(0).setPreferredWidth(60);
+                view.getMenuTable().setRowHeight(60);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -218,16 +234,16 @@ public class ManageMenuModel {
 //        
    // }
     //update table
-    public Menu findMenu(String name){
-        ArrayList<Menu> menuArr = loadMenu();
-        for(int i = 0; i< menuArr.size() && !menuArr.isEmpty(); i++){
-            if(menuArr.get(i).getName().equals(name)){
-                //return menuArr
-                return (Menu)menuArr.get(i);
-                
-            }
-        }
-        return null;
-    }
+//    public Menu findMenu(String name){
+//        ArrayList<Menu> menuArr = loadMenu();
+//        for(int i = 0; i< menuArr.size() && !menuArr.isEmpty(); i++){
+//            if(menuArr.get(i).getName().equals(name)){
+//                //return menuArr
+//                return (Menu)menuArr.get(i);
+//                
+//            }
+//        }
+//        return null;
+//    }
     
 }
