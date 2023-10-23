@@ -57,7 +57,9 @@ public class AccountDao {
             ps.setString(2, account.getUsername());
             ps.setString(3, account.getPassword());
             
-            return true;
+            int rowsAffected = ps.executeUpdate();
+            
+            return rowsAffected > 0;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
