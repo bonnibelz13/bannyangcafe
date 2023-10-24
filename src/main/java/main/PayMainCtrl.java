@@ -9,18 +9,22 @@ public class PayMainCtrl {
     PayMainUI view;
     PaymentChooseCtrl chooseCtrl;
     PaybyPromptCtrl promptCtrl;
+    CheckoutCtrl checkoutCtrl;
+
     
     
     // Constructor and Method
-   public PayMainCtrl() {
+   public PayMainCtrl(CheckoutCtrl checkoutCtrl) {
+        this.checkoutCtrl = checkoutCtrl;
 
         initComponents();
     }
     
     public void initComponents() {
         this.view = new PayMainUI();
-        this.chooseCtrl = new PaymentChooseCtrl(this);
-        this.promptCtrl = new PaybyPromptCtrl(this);
+        this.chooseCtrl = new PaymentChooseCtrl(this, checkoutCtrl);
+        this.promptCtrl = new PaybyPromptCtrl(this, checkoutCtrl);
+        
 
         setView("PaymentChoose", "null");
         
@@ -34,7 +38,7 @@ public class PayMainCtrl {
     public PaybyPromptCtrl getPaybyPromptCtrl(){
         return promptCtrl;
     }
-    
+
     
     
     public void setView(String to, String from) {

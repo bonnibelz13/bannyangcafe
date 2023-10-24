@@ -154,7 +154,7 @@ public class HomeUI extends javax.swing.JFrame {
         Bannyang.setText("BannYang Cha.");
         panel.add(Bannyang, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 370, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pic/homecafe.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homecafe.jpg"))); // NOI18N
         jLabel2.setMinimumSize(new java.awt.Dimension(530, 800));
         panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 820));
 

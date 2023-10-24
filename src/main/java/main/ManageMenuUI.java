@@ -85,7 +85,7 @@ public class ManageMenuUI extends javax.swing.JFrame {
 
         addImgBtn.setBackground(new java.awt.Color(239, 220, 208));
         addImgBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        addImgBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pic/iconaddpic.png"))); // NOI18N
+        addImgBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconaddpic.png"))); // NOI18N
         addImgBtn.setText("picture");
         panel.add(addImgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 110, 40));
 

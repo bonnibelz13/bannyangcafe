@@ -17,14 +17,17 @@ import javax.swing.table.DefaultTableModel;
 public class CheckoutCtrl implements ActionListener {
     CheckoutUI view;
     DefaultTableModel orderTable;
-    double total;
+    double total, cashAmount, change;
     
     public CheckoutCtrl(DefaultTableModel orderTable, double total){
         this.orderTable = orderTable;
         this.total = total;
+
 //        System.out.println(orderTable.getRowCount());
 
         initComponents();
+        
+
     }
     
     public void initComponents(){
@@ -62,15 +65,31 @@ public class CheckoutCtrl implements ActionListener {
         return view.getPanel();
     }
     
+    public DefaultTableModel getOrderTableModel() {
+        return orderTable;
+    }
+    
+    public double getTotal() {
+        return total;
+    }
+    
+    public double getCash(){
+        return cashAmount;
+    }
+    
+    public double getChange(){
+        return change;
+    }
     //-----------
     // Change cal.
     //-----------
     
     private void calculateChange() {
         try {
-            double cashAmount = Double.parseDouble(view.getCashTxt().getText());
-            double change = cashAmount - total;
 
+            this.cashAmount = Double.parseDouble(view.getCashTxt().getText());
+            this.change = cashAmount - total;
+            
             DecimalFormat df = new DecimalFormat("0.00");
             view.getChangeTxt().setText(df.format(change));
             
@@ -93,7 +112,7 @@ public class CheckoutCtrl implements ActionListener {
     public void actionPerformed(ActionEvent ev) {
         if(ev.getSource()== view.getPaymentBtn()){
             
-            new PayMainCtrl();
+            new PayMainCtrl(this);
             System.out.println("PAYMENT PRESSED.");
             
             }
