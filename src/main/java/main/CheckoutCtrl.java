@@ -36,10 +36,12 @@ public class CheckoutCtrl implements ActionListener {
 
         view.getPaymentBtn().addActionListener((ActionListener)this);
         
+        // orderTable
         view.getOrderTable().setModel(orderTable);
+        // Total
         view.getTotalTxt().setText(String.valueOf(total));
         
-        
+        // Payment Date
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String currentDate = sdf.format(new Date());
         view.getPaymenyDatetxt().setText(currentDate);
