@@ -104,6 +104,9 @@ public class CheckoutUI extends javax.swing.JFrame {
 
         panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 490, 620));
 
+        paymentBtn.setBackground(new java.awt.Color(36, 126, 84));
+        paymentBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        paymentBtn.setForeground(new java.awt.Color(255, 255, 255));
         paymentBtn.setText("Payment");
         panel.add(paymentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 250, 50));
 

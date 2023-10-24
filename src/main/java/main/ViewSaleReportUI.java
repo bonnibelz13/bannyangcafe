@@ -36,8 +36,6 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
-        copyright_panel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -52,44 +50,18 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
 
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        copyright_panel.setBackground(new java.awt.Color(40, 38, 38));
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("© 2023 BaanYang Cha Inc.");
-
-        javax.swing.GroupLayout copyright_panelLayout = new javax.swing.GroupLayout(copyright_panel);
-        copyright_panel.setLayout(copyright_panelLayout);
-        copyright_panelLayout.setHorizontalGroup(
-            copyright_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(copyright_panelLayout.createSequentialGroup()
-                .addGap(456, 456, 456)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(459, Short.MAX_VALUE))
-        );
-        copyright_panelLayout.setVerticalGroup(
-            copyright_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(copyright_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        panel.add(copyright_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 780, 1110, 40));
-
         jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setText("Sale Report");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2023" }));
-        panel.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
+        panel.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Month", "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
-        panel.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, -1, -1));
+        panel.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, -1));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Date", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
-        panel.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 60, -1, -1));
+        panel.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 80, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -99,11 +71,11 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 60, -1, -1));
+        panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("Sale History");
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(255, 51, 51));
         btnBack.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -114,7 +86,7 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        panel.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 730, -1, -1));
+        panel.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         menuTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -127,17 +99,19 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(menuTable);
 
-        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 510, 510));
+        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 510, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1090, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
 
         pack();
@@ -188,14 +162,12 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JPanel copyright_panel;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable menuTable;
     private javax.swing.JPanel panel;

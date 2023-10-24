@@ -6,7 +6,10 @@ import java.sql.*;
 
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import model.*;
 
 /**
@@ -26,6 +29,8 @@ public class CreateOrderCtrl implements ActionListener {
         this.mainCtrl = mainCtrl;
         this.user = user;
         initComponents();
+        
+        setupSearchField();
     }
     public void initComponents(){
         view = new CreateOrderUI();
@@ -53,7 +58,29 @@ public class CreateOrderCtrl implements ActionListener {
     }
 
     
-    
+   private void setupSearchField() {
+        JTextField searchTxt = view.getSearchTxt();
+        DefaultTableModel menuTableModel = (DefaultTableModel) view.getMenuTable().getModel();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(menuTableModel);
+        view.getMenuTable().setRowSorter(sorter);
+
+        searchTxt.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                filterRows();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                filterRows();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                filterRows();
+            }
+        });
+    }
     
     //file input and output
     public ArrayList loadMenu(){
@@ -67,6 +94,17 @@ public class CreateOrderCtrl implements ActionListener {
         }
     }
     
+    private void filterRows() {
+        JTextField searchTxt = view.getSearchTxt();
+        TableRowSorter<DefaultTableModel> sorter = (TableRowSorter<DefaultTableModel>) view.getMenuTable().getRowSorter();
+        String text = searchTxt.getText();
+
+        if (text.trim().length() == 0) {
+            sorter.setRowFilter(null); // ไม่มีการค้นหา -> แสดงทั้งหมด
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter("(?i)" + text)); // กรองแถวตามเนื้อหาในช่องค้นหา (ไม่คำนึงถึงตัวพิมพ์เล็ก-ใหญ่)
+        }
+    }
     public void findUserID(Account user){
         System.out.println(user.getUsername());
         //String

@@ -68,11 +68,13 @@ public class HomeCtrl implements ActionListener {
                     }
                     Date date = new Date();
                     SimpleDateFormat tf = new SimpleDateFormat("hh:mm:ss aa");
-                    SimpleDateFormat df = new SimpleDateFormat("EEEE, yyyy-MM-dd");
+                    SimpleDateFormat df = new SimpleDateFormat("EEEE, yyyy/MM/dd");
                     String time = tf.format(date);
                     view.getjTime().setText(time.split(" ")[0]);
                     view.getjPMAM().setText(time.split(" ")[1]);
                     view.getjDate().setText(df.format(date));
+                    
+                    
                 }
             }
         }).start();

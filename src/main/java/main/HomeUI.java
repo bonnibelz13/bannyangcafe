@@ -69,67 +69,97 @@ public class HomeUI extends javax.swing.JFrame {
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
-        copyright_panel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        btnManageMenu = new javax.swing.JButton();
-        btnCreateOrder = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
-        btnViewSaleReport = new javax.swing.JButton();
+        currentusername = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         Bannyang = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jDate = new javax.swing.JLabel();
         jPMAM = new javax.swing.JLabel();
-        currentusername = new javax.swing.JLabel();
         jTime = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnViewSaleReport = new javax.swing.JButton();
+        btnManageMenu = new javax.swing.JButton();
+        btnCreateOrder = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel.setBackground(new java.awt.Color(201, 193, 188));
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        copyright_panel.setBackground(new java.awt.Color(40, 38, 38));
+        currentusername.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        currentusername.setForeground(new java.awt.Color(243, 242, 242));
+        currentusername.setText("welcome, username");
+        panel.add(currentusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 540, 30));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("© 2023 BaanYang Cha Inc.");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BAANYANGCHA.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 90, 80));
 
-        javax.swing.GroupLayout copyright_panelLayout = new javax.swing.GroupLayout(copyright_panel);
-        copyright_panel.setLayout(copyright_panelLayout);
-        copyright_panelLayout.setHorizontalGroup(
-            copyright_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, copyright_panelLayout.createSequentialGroup()
-                .addContainerGap(455, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(440, 440, 440))
-        );
-        copyright_panelLayout.setVerticalGroup(
-            copyright_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(copyright_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
+        Bannyang.setBackground(new java.awt.Color(234, 235, 238));
+        Bannyang.setFont(new java.awt.Font("Angsana New", 1, 60)); // NOI18N
+        Bannyang.setForeground(new java.awt.Color(248, 247, 247));
+        Bannyang.setText("BannYang Cha.");
+        panel.add(Bannyang, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 370, -1));
 
-        panel.add(copyright_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 780, 1090, 40));
+        jDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jDate.setForeground(new java.awt.Color(243, 242, 242));
+        jDate.setText("Saturday, 21/10/2023");
+        panel.add(jDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 220, -1));
+
+        jPMAM.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jPMAM.setForeground(new java.awt.Color(243, 242, 242));
+        jPMAM.setText("PM");
+        panel.add(jPMAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 100, 40, -1));
+
+        jTime.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTime.setForeground(new java.awt.Color(243, 242, 242));
+        jTime.setText("00:00:00");
+        panel.add(jTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, 90, -1));
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel6.setText("View Sale's");
+        panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 200, 80));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel5.setText("Report");
+        panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 380, 120, 80));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel4.setText("Create Order");
+        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 230, 80));
+
+        btnViewSaleReport.setBackground(new java.awt.Color(255, 255, 255));
+        btnViewSaleReport.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        btnViewSaleReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewSaleReportActionPerformed(evt);
+            }
+        });
+        panel.add(btnViewSaleReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 300, 300, 180));
 
         btnManageMenu.setBackground(new java.awt.Color(255, 255, 255));
-        btnManageMenu.setFont(new java.awt.Font("Angsana New", 1, 36)); // NOI18N
+        btnManageMenu.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         btnManageMenu.setText("Manage Menu");
         btnManageMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageMenuActionPerformed(evt);
             }
         });
-        panel.add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 300, 180));
+        panel.add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 300, 180));
 
         btnCreateOrder.setBackground(new java.awt.Color(255, 255, 255));
-        btnCreateOrder.setFont(new java.awt.Font("Angsana New", 1, 36)); // NOI18N
-        btnCreateOrder.setText("Create Order");
-        panel.add(btnCreateOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 300, 180));
+        btnCreateOrder.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        panel.add(btnCreateOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 300, 180));
 
-        btnLogout.setBackground(new java.awt.Color(169, 3, 3));
-        btnLogout.setFont(new java.awt.Font("BD Megatoya Outline Black Itali", 1, 18)); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(236, 238, 241, 30));
+
+        btnLogout.setBackground(new java.awt.Color(17, 16, 16));
+        btnLogout.setFont(new java.awt.Font("BD Megatoya Outline Black Itali", 1, 12)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(245, 240, 240));
         btnLogout.setText("logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -137,42 +167,37 @@ public class HomeUI extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        panel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 710, 100, 40));
 
-        btnViewSaleReport.setBackground(new java.awt.Color(255, 255, 255));
-        btnViewSaleReport.setFont(new java.awt.Font("Angsana New", 1, 36)); // NOI18N
-        btnViewSaleReport.setText("View Sale's Report");
-        btnViewSaleReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewSaleReportActionPerformed(evt);
-            }
-        });
-        panel.add(btnViewSaleReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 570, 300, 180));
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("© 2023 BaanYang Cha Inc.");
 
-        Bannyang.setFont(new java.awt.Font("Angsana New", 1, 60)); // NOI18N
-        Bannyang.setForeground(new java.awt.Color(219, 218, 218));
-        Bannyang.setText("BannYang Cha.");
-        panel.add(Bannyang, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 370, -1));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(btnLogout)
+                .addGap(452, 452, 452)
+                .addComponent(jLabel3)
+                .addContainerGap(527, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(677, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(btnLogout))
+                .addGap(15, 15, 15))
+        );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homecafe.jpg"))); // NOI18N
-        jLabel2.setMinimumSize(new java.awt.Dimension(530, 800));
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 820));
+        panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 720));
 
-        jDate.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
-        jDate.setText("Saturday, 21-10-2023");
-        panel.add(jDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, 160, -1));
-
-        jPMAM.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
-        jPMAM.setText("PM");
-        panel.add(jPMAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 60, -1));
-
-        currentusername.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
-        currentusername.setText("welcome, username");
-        panel.add(currentusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 290, 30));
-
-        jTime.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
-        jTime.setText("00:00:00");
-        panel.add(jTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 70, -1));
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/signupcafe.jpg"))); // NOI18N
+        bg.setText("jLabel2");
+        panel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,9 +207,7 @@ public class HomeUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -239,16 +262,20 @@ public class HomeUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bannyang;
+    private javax.swing.JLabel bg;
     private javax.swing.JButton btnCreateOrder;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnManageMenu;
     private javax.swing.JButton btnViewSaleReport;
-    private javax.swing.JPanel copyright_panel;
     private javax.swing.JLabel currentusername;
     private javax.swing.JLabel jDate;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jPMAM;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jTime;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables

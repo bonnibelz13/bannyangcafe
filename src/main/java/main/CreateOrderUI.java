@@ -34,11 +34,8 @@ public class CreateOrderUI extends javax.swing.JFrame {
         quantity = new javax.swing.JTextField();
         removeBtn = new javax.swing.JButton();
         checkoutBtn = new javax.swing.JButton();
-        copyright_panel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
         searchTxt = new javax.swing.JTextField();
-        btnFind = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         menuTable = new javax.swing.JTable();
@@ -49,11 +46,11 @@ public class CreateOrderUI extends javax.swing.JFrame {
         panel.setBackground(new java.awt.Color(238, 235, 234));
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel1.setText("Select Menu:");
-        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 120, 40));
+        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 160, 40));
 
-        orderTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
+        orderTable.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -64,16 +61,16 @@ public class CreateOrderUI extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(orderTable);
 
-        panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 410, 470));
+        panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 410, 470));
 
-        total.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        total.setFont(new java.awt.Font("sansserif", 1, 22)); // NOI18N
         total.setText("Total (฿): 0.0");
-        panel.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 210, 40));
+        panel.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, 210, 40));
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel3.setText("Quantity:");
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 80, 30));
-        panel.add(quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 100, -1));
+        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 80, 30));
+        panel.add(quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 100, -1));
 
         removeBtn.setText("Remove from List");
         removeBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -81,61 +78,31 @@ public class CreateOrderUI extends javax.swing.JFrame {
                 removeBtnActionPerformed(evt);
             }
         });
-        panel.add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 680, 180, 30));
+        panel.add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 650, 180, 30));
 
+        checkoutBtn.setBackground(new java.awt.Color(36, 126, 84));
+        checkoutBtn.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        checkoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         checkoutBtn.setText("Check Out");
         checkoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkoutBtnActionPerformed(evt);
             }
         });
-        panel.add(checkoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 170, 90));
+        panel.add(checkoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 170, 90));
 
-        copyright_panel.setBackground(new java.awt.Color(40, 38, 38));
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("© 2023 BaanYang Cha Inc.");
-
-        javax.swing.GroupLayout copyright_panelLayout = new javax.swing.GroupLayout(copyright_panel);
-        copyright_panel.setLayout(copyright_panelLayout);
-        copyright_panelLayout.setHorizontalGroup(
-            copyright_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, copyright_panelLayout.createSequentialGroup()
-                .addContainerGap(475, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(460, 460, 460))
-        );
-        copyright_panelLayout.setVerticalGroup(
-            copyright_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(copyright_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        panel.add(copyright_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 780, 1130, 40));
-
+        addBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         addBtn.setText("Add to Order");
-        panel.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 170, 70));
+        panel.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 170, 70));
 
         searchTxt.setText("Search..");
-        panel.add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 230, -1));
-
-        btnFind.setText("Find");
-        btnFind.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFindActionPerformed(evt);
-            }
-        });
-        panel.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
+        panel.add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 230, -1));
 
         backBtn.setBackground(new java.awt.Color(163, 46, 46));
         backBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("Back");
-        panel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 720, -1, -1));
+        panel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         menuTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -148,20 +115,20 @@ public class CreateOrderUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(menuTable);
 
-        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 370, 480));
+        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 370, 480));
 
         clearBtn.setText("Clear All Menu.");
-        panel.add(clearBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 680, 180, 30));
+        panel.add(clearBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 650, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1090, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -174,10 +141,6 @@ public class CreateOrderUI extends javax.swing.JFrame {
     private void checkoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkoutBtnActionPerformed
-
-    private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnFindActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,13 +180,10 @@ public class CreateOrderUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JButton backBtn;
-    private javax.swing.JButton btnFind;
     private javax.swing.JButton checkoutBtn;
     private javax.swing.JButton clearBtn;
-    private javax.swing.JPanel copyright_panel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable menuTable;

@@ -35,9 +35,14 @@ public class PaymentChooseUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        panel.setBackground(new java.awt.Color(255, 255, 255));
+
+        promptBtn.setBackground(new java.awt.Color(5, 20, 65));
         promptBtn.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
+        promptBtn.setForeground(new java.awt.Color(255, 255, 255));
         promptBtn.setText("PromptPay");
 
+        cashBtn.setBackground(new java.awt.Color(204, 204, 204));
         cashBtn.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cashBtn.setText("Pay by Cash");
 

@@ -30,8 +30,6 @@ public class ManageMenuUI extends javax.swing.JFrame {
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
-        copyright_panel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         imageLabel = new javax.swing.JLabel();
         addImgBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -53,56 +51,30 @@ public class ManageMenuUI extends javax.swing.JFrame {
         panel.setBackground(new java.awt.Color(243, 234, 221));
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        copyright_panel.setBackground(new java.awt.Color(40, 38, 38));
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("© 2023 BaanYang Cha Inc.");
-
-        javax.swing.GroupLayout copyright_panelLayout = new javax.swing.GroupLayout(copyright_panel);
-        copyright_panel.setLayout(copyright_panelLayout);
-        copyright_panelLayout.setHorizontalGroup(
-            copyright_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, copyright_panelLayout.createSequentialGroup()
-                .addContainerGap(475, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(440, 440, 440))
-        );
-        copyright_panelLayout.setVerticalGroup(
-            copyright_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(copyright_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        panel.add(copyright_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 780, 1110, 40));
-
         imageLabel.setBackground(new java.awt.Color(255, 255, 255));
         imageLabel.setOpaque(true);
-        panel.add(imageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 250, 170));
+        panel.add(imageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 250, 170));
 
         addImgBtn.setBackground(new java.awt.Color(239, 220, 208));
         addImgBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         addImgBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconaddpic.png"))); // NOI18N
         addImgBtn.setText("picture");
-        panel.add(addImgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 110, 40));
+        panel.add(addImgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 110, 40));
 
         jLabel2.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel2.setText("Name:");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
-        panel.add(menuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 250, -1));
+        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+        panel.add(menuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 250, -1));
 
         jLabel3.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel3.setText("Price (฿):");
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
-        panel.add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 250, -1));
-        panel.add(desciption, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 590, 250, 70));
+        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, -1));
+        panel.add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 250, -1));
+        panel.add(desciption, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, 250, 70));
 
         jLabel4.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel4.setText("Description");
-        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, -1, -1));
+        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
 
         menuTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -115,30 +87,30 @@ public class ManageMenuUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(menuTable);
 
-        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 510, 450));
+        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 510, 450));
 
         delMenuBtn.setBackground(new java.awt.Color(213, 135, 135));
         delMenuBtn.setFont(new java.awt.Font("Angsana New", 1, 28)); // NOI18N
         delMenuBtn.setForeground(new java.awt.Color(25, 24, 24));
         delMenuBtn.setText("Delete");
-        panel.add(delMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 590, 170, 40));
+        panel.add(delMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 170, 40));
 
         updateMenuBtn.setBackground(new java.awt.Color(209, 199, 173));
         updateMenuBtn.setFont(new java.awt.Font("Angsana New", 1, 28)); // NOI18N
         updateMenuBtn.setForeground(new java.awt.Color(32, 29, 29));
         updateMenuBtn.setText("Update");
-        panel.add(updateMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 590, 170, 40));
+        panel.add(updateMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 540, 170, 40));
 
         addMenuBtn.setBackground(new java.awt.Color(127, 161, 136));
         addMenuBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         addMenuBtn.setText("Add Menu");
-        panel.add(addMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 690, 100, 40));
+        panel.add(addMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 640, 100, 40));
 
         backBtn.setBackground(new java.awt.Color(163, 46, 46));
         backBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("Back");
-        panel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         refreshBtn.setBackground(new java.awt.Color(153, 204, 255));
         refreshBtn.setFont(new java.awt.Font("Angsana New", 1, 28)); // NOI18N
@@ -148,17 +120,17 @@ public class ManageMenuUI extends javax.swing.JFrame {
                 refreshBtnActionPerformed(evt);
             }
         });
-        panel.add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 660, 150, 40));
+        panel.add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -207,14 +179,12 @@ public class ManageMenuUI extends javax.swing.JFrame {
     private javax.swing.JButton addImgBtn;
     private javax.swing.JButton addMenuBtn;
     private javax.swing.JButton backBtn;
-    private javax.swing.JPanel copyright_panel;
     private javax.swing.JButton delMenuBtn;
     private javax.swing.JTextField desciption;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField menuName;
     private javax.swing.JTable menuTable;

@@ -18,6 +18,7 @@ public class CheckoutCtrl implements ActionListener {
     CheckoutUI view;
     DefaultTableModel orderTable;
     double total, cashAmount, change;
+    String paymentID;
     
     public CheckoutCtrl(DefaultTableModel orderTable, double total){
         this.orderTable = orderTable;
@@ -44,6 +45,10 @@ public class CheckoutCtrl implements ActionListener {
         // Total
         view.getTotalTxt().setText(String.valueOf(total));
         
+        // Payment ID
+        paymentID = generatePaymentID();
+        view.getPaymentIDtxt().setText(paymentID);
+        
         // Payment Date
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String currentDate = sdf.format(new Date());
@@ -60,6 +65,8 @@ public class CheckoutCtrl implements ActionListener {
         });
     
     }
+    
+    
     
     public JPanel getPanel(){
         return view.getPanel();
@@ -80,6 +87,17 @@ public class CheckoutCtrl implements ActionListener {
     public double getChange(){
         return change;
     }
+    
+    public static String generatePaymentID() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        Date now = new Date();
+        return dateFormat.format(now);
+    }
+    
+    public String getPaymentID(){
+        return paymentID;
+    }
+    
     //-----------
     // Change cal.
     //-----------
@@ -111,7 +129,6 @@ public class CheckoutCtrl implements ActionListener {
     
     public void actionPerformed(ActionEvent ev) {
         if(ev.getSource()== view.getPaymentBtn()){
-            
             new PayMainCtrl(this);
             System.out.println("PAYMENT PRESSED.");
             

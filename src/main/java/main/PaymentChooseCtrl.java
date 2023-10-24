@@ -99,10 +99,10 @@ public class PaymentChooseCtrl implements ActionListener{
         }
         
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"-----------------------------------------------------------------------------------------------------------\n");
-        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Total\t\t\t\t" + total + " Baht\n");
+        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Total\t\t\t\t" + total + " \n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"-----------------------------------------------------------------------------------------------------------\n");
-        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Paid\t\t\t\t" + cash + " Baht\n");
-        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Change\t\t\t\t" + change + " Baht\n");
+        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Paid\t\t\t\t" + cash + " \n");
+        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Change\t\t\t\t" + change + " \n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"-----------------------------------------------------------------------------------------------------------\n");
 
 
