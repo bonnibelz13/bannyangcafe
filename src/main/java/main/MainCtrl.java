@@ -87,7 +87,7 @@ public class MainCtrl {
         } else if (to.equals(new String("CreateOrder"))) {
             if (from.equals("null")) {
                 mainUI.remove(homeCtrl.getPanel());
-                this.manageMenuCtrl = new ManageMenuCtrl(this, user);
+                this.createOrderCtrl = new CreateOrderCtrl(this, user);
                 
             } else if (from.equals(new String("Checkout"))) {
                 mainUI.remove(checkoutCtrl.getPanel());

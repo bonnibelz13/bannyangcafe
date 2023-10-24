@@ -33,8 +33,6 @@ public class CheckoutUI extends javax.swing.JFrame {
         paymentIDtxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         paymenyDatetxt = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        SubtotalTxt = new javax.swing.JTextField();
         TotalTxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         CashTxt = new javax.swing.JTextField();
@@ -42,7 +40,7 @@ public class CheckoutUI extends javax.swing.JFrame {
         ChangeTxt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        menuTable1 = new javax.swing.JTable();
+        orderTable = new javax.swing.JTable();
         paymentBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -52,44 +50,57 @@ public class CheckoutUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel2.setText("Payment ID:");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
-        panel.add(paymentIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 250, -1));
+        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+
+        paymentIDtxt.setEditable(false);
+        paymentIDtxt.setBackground(new java.awt.Color(220, 219, 219));
+        paymentIDtxt.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        panel.add(paymentIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 250, 40));
 
         jLabel3.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel3.setText("Payment Date:");
         panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
-        panel.add(paymenyDatetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 250, -1));
 
-        jLabel4.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
-        jLabel4.setText("Sub Total (฿):");
-        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
-        panel.add(SubtotalTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 250, -1));
-        panel.add(TotalTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 250, -1));
+        paymenyDatetxt.setEditable(false);
+        paymenyDatetxt.setBackground(new java.awt.Color(220, 219, 219));
+        paymenyDatetxt.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        panel.add(paymenyDatetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 250, 40));
+
+        TotalTxt.setEditable(false);
+        TotalTxt.setBackground(new java.awt.Color(220, 219, 219));
+        TotalTxt.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        panel.add(TotalTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 250, 40));
 
         jLabel6.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel6.setText("Total (฿):");
-        panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
-        panel.add(CashTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 250, -1));
+        panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
+
+        CashTxt.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        panel.add(CashTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 250, 40));
 
         jLabel7.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel7.setText("Cash (฿):");
-        panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, -1));
-        panel.add(ChangeTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 250, -1));
+        panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
+
+        ChangeTxt.setEditable(false);
+        ChangeTxt.setBackground(new java.awt.Color(220, 219, 219));
+        ChangeTxt.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        panel.add(ChangeTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 250, 40));
 
         jLabel8.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel8.setText("Change (฿):");
-        panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
+        panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, -1, -1));
 
-        menuTable1.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
-        menuTable1.setModel(new javax.swing.table.DefaultTableModel(
+        orderTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
+        orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Menu ID", "Name", "Price", "Quantity", "Total"
+                "Name", "Description", "Price", "Quantity", "Total Price"
             }
         ));
-        jScrollPane2.setViewportView(menuTable1);
+        jScrollPane2.setViewportView(orderTable);
 
         panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 490, 620));
 
@@ -161,13 +172,7 @@ public class CheckoutUI extends javax.swing.JFrame {
         this.ChangeTxt = ChangeTxt;
     }
 
-    public JTextField getSubtotalTxt() {
-        return SubtotalTxt;
-    }
 
-    public void setSubtotalTxt(JTextField SubtotalTxt) {
-        this.SubtotalTxt = SubtotalTxt;
-    }
 
     public JTextField getTotalTxt() {
         return TotalTxt;
@@ -177,15 +182,13 @@ public class CheckoutUI extends javax.swing.JFrame {
         this.TotalTxt = TotalTxt;
     }
 
-
-
-    public JTable getMenuTable1() {
-        return menuTable1;
+    public JTable getOrderTable() {
+        return orderTable;
     }
 
-    public void setMenuTable1(JTable menuTable1) {
-        this.menuTable1 = menuTable1;
-    }
+
+
+
 
     public JPanel getPanel() {
         return panel;
@@ -222,16 +225,14 @@ public class CheckoutUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CashTxt;
     private javax.swing.JTextField ChangeTxt;
-    private javax.swing.JTextField SubtotalTxt;
     private javax.swing.JTextField TotalTxt;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable menuTable1;
+    private javax.swing.JTable orderTable;
     private javax.swing.JPanel panel;
     private javax.swing.JButton paymentBtn;
     private javax.swing.JTextField paymentIDtxt;

@@ -33,13 +33,18 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>com.mycompany.cafe.Cafe</exec.mainClass>
     </properties>
-    
+
     <build>
-    <resources>
-        <resource>
-            <directory>src/main/java</directory>
-        </resource>
-     </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <mainClass>com.mycompany.cafe.Cafe</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
     
 </project>

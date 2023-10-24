@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package main;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 /**
  *
@@ -49,6 +42,7 @@ public class CreateOrderUI extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         menuTable = new javax.swing.JTable();
+        clearBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,7 +59,7 @@ public class CreateOrderUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Image", "Name", "Description", "Price", "Quantity", "Total Price"
+                "Name", "Description", "Price", "Quantity", "Total Price"
             }
         ));
         jScrollPane2.setViewportView(orderTable);
@@ -81,13 +75,13 @@ public class CreateOrderUI extends javax.swing.JFrame {
         panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 80, 30));
         panel.add(quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 100, -1));
 
-        removeBtn.setText("Delete from List");
+        removeBtn.setText("Remove from List");
         removeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeBtnActionPerformed(evt);
             }
         });
-        panel.add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 680, 170, 30));
+        panel.add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 680, 180, 30));
 
         checkoutBtn.setText("Check Out");
         checkoutBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +150,9 @@ public class CreateOrderUI extends javax.swing.JFrame {
 
         panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 370, 480));
 
+        clearBtn.setText("Clear All Menu.");
+        panel.add(clearBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 680, 180, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -222,6 +219,7 @@ public class CreateOrderUI extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton btnFind;
     private javax.swing.JButton checkoutBtn;
+    private javax.swing.JButton clearBtn;
     private javax.swing.JPanel copyright_panel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -261,6 +259,10 @@ public class CreateOrderUI extends javax.swing.JFrame {
         this.checkoutBtn = checkoutBtn;
     }
 
+    public JButton getClearBtn() {
+        return clearBtn;
+    }
+
     public JPanel getPanel() {
         return panel;
     }
@@ -273,9 +275,6 @@ public class CreateOrderUI extends javax.swing.JFrame {
         return removeBtn;
     }
 
-    public void setRemoveBtn(JButton removeBtn) {
-        this.removeBtn = removeBtn;
-    }
     public JTextField getQuantity(){
         return this.quantity;
     }

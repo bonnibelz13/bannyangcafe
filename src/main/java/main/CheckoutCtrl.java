@@ -1,20 +1,29 @@
 
 package main;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.event.*;
+import java.text.*;
+import java.util.Date;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author baibu
  */
-public class CheckoutCtrl {
+public class CheckoutCtrl implements ActionListener {
     CheckoutUI view;
-//    MainCtrl mainCtrl;
+    DefaultTableModel orderTable;
+    double total;
     
-    public CheckoutCtrl(){
-//        this.mainCtrl = mainCtrl;
+    public CheckoutCtrl(DefaultTableModel orderTable, double total){
+        this.orderTable = orderTable;
+        this.total = total;
+//        System.out.println(orderTable.getRowCount());
+
         initComponents();
     }
     
@@ -23,20 +32,69 @@ public class CheckoutCtrl {
         view.setVisible(true);
         view.setLocationRelativeTo(null);
         
-//        view.getBackBtn().addActionListener((ActionListener)this);
-          
+        view.getPaymentBtn().setVisible(false);
+
+        view.getPaymentBtn().addActionListener((ActionListener)this);
+        
+        view.getOrderTable().setModel(orderTable);
+        view.getTotalTxt().setText(String.valueOf(total));
+        
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        String currentDate = sdf.format(new Date());
+        view.getPaymenyDatetxt().setText(currentDate);
+        
+        // action key release when insert Cash Text -> PRESS ENTER -> do calculateChange()
+        view.getCashTxt().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    calculateChange();
+                }
+            }
+        });
+    
     }
     
     public JPanel getPanel(){
         return view.getPanel();
     }
     
-//    public void actionPerformed(ActionEvent ev) {
-//        if(ev.getSource()== view.getBackBtn()){
-//            System.out.println("Creae Order Open...");
-//            view.dispose();
-////            mainCtrl.setView("CreateOrder", "null");
-//        
-//        }
-//    }
+    //-----------
+    // Change cal.
+    //-----------
+    
+    private void calculateChange() {
+        try {
+            double cashAmount = Double.parseDouble(view.getCashTxt().getText());
+            double change = cashAmount - total;
+
+            DecimalFormat df = new DecimalFormat("0.00");
+            view.getChangeTxt().setText(df.format(change));
+            
+            // check change >= 0.0 then PAYMENT BUTTON APPEAR.
+            if (change < 0.0) {
+                view.getChangeTxt().setForeground(Color.red);
+                view.getPaymentBtn().setVisible(false);
+            } else {
+                view.getChangeTxt().setForeground(Color.black);
+                view.getPaymentBtn().setVisible(true);
+            }
+        } catch (NumberFormatException e) {
+            view.getChangeTxt().setText("N/A");
+            
+            view.getPaymentBtn().setVisible(false);
+        }
+    }
+    
+    
+    public void actionPerformed(ActionEvent ev) {
+        if(ev.getSource()== view.getPaymentBtn()){
+            System.out.println("PAYMENT PRESSED.");
+            view.dispose();
+        
+        }
+    }
+    
+    
 }
