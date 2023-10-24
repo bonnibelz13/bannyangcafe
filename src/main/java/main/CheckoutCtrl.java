@@ -92,11 +92,13 @@ public class CheckoutCtrl implements ActionListener {
     
     public void actionPerformed(ActionEvent ev) {
         if(ev.getSource()== view.getPaymentBtn()){
+            
+            new PayMainCtrl();
             System.out.println("PAYMENT PRESSED.");
-            view.dispose();
+            
+            }
         
         }
     }
     
-    
-}
+   

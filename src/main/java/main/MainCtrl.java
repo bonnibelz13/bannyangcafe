@@ -61,6 +61,8 @@ public class MainCtrl {
     
     
     public void setView(String to, String from) {
+        
+        // Home -> ViewSaleReport UI
         if (to.equals(new String("ViewSaleReport")) && from.equals("null")) {
             mainUI.remove(homeCtrl.getPanel());
             mainUI.add(viewSaleReportCtrl.getPanel());
@@ -68,6 +70,7 @@ public class MainCtrl {
             mainUI.repaint();
             System.out.println("In ViewSale");
         }
+        // Home -> ManageMenu UI
         else if (to.equals(new String("ManageMenu")) && from.equals("null")) {
             this.manageMenuCtrl = new ManageMenuCtrl(this, user);
             mainUI.remove(homeCtrl.getPanel());
@@ -75,20 +78,14 @@ public class MainCtrl {
             mainUI.revalidate();
             mainUI.repaint();
             System.out.println("In ManageMenu");
-//        }
-//        else if (to.equals(new String("CreateOrder")) && from.equals("null")) {
-//            mainUI.remove(homeCtrl.getPanel());
-//            mainUI.add(createOrderCtrl.getPanel());
-//            mainUI.revalidate();
-//            mainUI.repaint();
-//            System.out.println("In CreateOrder");
-//            
-//            
+       
+        // Home -> CreateOrder UI
         } else if (to.equals(new String("CreateOrder"))) {
             if (from.equals("null")) {
                 mainUI.remove(homeCtrl.getPanel());
                 this.createOrderCtrl = new CreateOrderCtrl(this, user);
                 
+            // CreateOrder UI -> Checkout UI
             } else if (from.equals(new String("Checkout"))) {
                 mainUI.remove(checkoutCtrl.getPanel());
             }
@@ -97,33 +94,48 @@ public class MainCtrl {
             mainUI.repaint();
             System.out.println("In CreateOrder");
         }
-        else if (to.equals(new String("Home"))) {
-            if (from.equals("null")) {
-                mainUI.remove(mainUI.getPanel());
-            }
-            else if (from.equals(new String("ViewSaleReport"))) {
-                mainUI.remove(viewSaleReportCtrl.getPanel());
-            }
-            else if (from.equals(new String("ManageMenu"))) {
-                mainUI.remove(manageMenuCtrl.getPanel());
-            }
-            else if (from.equals(new String("CreateOrder"))) {
-                mainUI.remove(createOrderCtrl.getPanel());
-            }
-            
-            mainUI.add(homeCtrl.getPanel());
-            mainUI.revalidate();
-            mainUI.repaint();
-        }
+        
+        // IDK??
         else if (to.equals(new String("ManageMenu"))){
             if(from.equals("ManageMenu")){
                 mainUI.remove(manageMenuCtrl.getPanel());
                 this.manageMenuCtrl = new ManageMenuCtrl(this, user);
                 mainUI.add(this.manageMenuCtrl.getPanel());
                 mainUI.revalidate();
-                 mainUI.repaint();
+                mainUI.repaint();
             }
         }
+        
+        // Back To Home UI
+        else if (to.equals(new String("Home"))) {
+            
+            // Main -> Home UI
+            if (from.equals("null")) {
+                mainUI.remove(mainUI.getPanel());
+            }
+            
+            // ViewSaleReport -> Home
+            else if (from.equals(new String("ViewSaleReport"))) {
+                mainUI.remove(viewSaleReportCtrl.getPanel());
+            }
+            
+            // ManageMenu -> Home
+            else if (from.equals(new String("ManageMenu"))) {
+                mainUI.remove(manageMenuCtrl.getPanel());
+            }
+            
+            // CreateOrder -> Home
+            else if (from.equals(new String("CreateOrder"))) {
+                mainUI.remove(createOrderCtrl.getPanel());
+            }
+            
+            
+            // Repaint Home UI
+            mainUI.add(homeCtrl.getPanel());
+            mainUI.revalidate();
+            mainUI.repaint();
+        }
+
     }
      
 
