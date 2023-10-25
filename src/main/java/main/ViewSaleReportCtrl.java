@@ -62,9 +62,9 @@ public class ViewSaleReportCtrl implements ActionListener{
         //Search
         //=====
         if(ae.getSource().equals(view.getSearchBtn())){
-            String date = view.getDateCB().getSelectedItem().toString();
-            String year = view.getYearCB().getSelectedItem().toString();
-            String month = view.getMonthCB().getSelectedItem().toString();
+            date = view.getDateCB().getSelectedItem().toString();
+            year = view.getYearCB().getSelectedItem().toString();
+            month = view.getMonthCB().getSelectedItem().toString();
             if(!date.equals("All Date")&& (month.equals("All Month") || year.equals("All Year"))){
                 JOptionPane.showMessageDialog(null, "Please select year and month.");
             }
