@@ -235,7 +235,7 @@ public class PaymentChooseCtrl implements ActionListener{
                     // Save to Database.
                     
                     int paymentID = 1;
-                    newOrder(paymentID);
+//                    newOrder(paymentID);
                     newOrderItem(paymentID);
                     JOptionPane.showMessageDialog(null, "Successfully!");
                     

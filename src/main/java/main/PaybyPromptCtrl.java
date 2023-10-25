@@ -178,7 +178,7 @@ public class PaybyPromptCtrl implements ActionListener{
                      receipt.getTxtPane().print();
                      // Save to Database.
                     int paymentID = 2;
-                    newOrder(paymentID);
+//                    newOrder(paymentID);
                     newOrderItem(paymentID);
                     JOptionPane.showMessageDialog(null, "Successfully!");
                 } catch (Exception e){
