@@ -17,12 +17,12 @@ import model.*;
  * @author User
  */
 public class CreateOrderCtrl implements ActionListener {
-    CreateOrderUI view;
-    CheckoutCtrl checkoutCtrl;
-    MainCtrl mainCtrl;
+    private CreateOrderUI view;
+    private CheckoutCtrl checkoutCtrl;
+    private MainCtrl mainCtrl;
     
     private int user_id;
-    Account user;
+    private Account user;
 
     
     public CreateOrderCtrl(MainCtrl mainCtrl, Account user){
@@ -83,16 +83,16 @@ public class CreateOrderCtrl implements ActionListener {
     }
     
     //file input and output
-    public ArrayList loadMenu(){
-        try(FileInputStream fin = new FileInputStream("MenuData.dat");
-            ObjectInputStream in = new ObjectInputStream(fin);){
-            System.out.println("load menu data success");
-            return ((ArrayList)in.readObject());
-        }catch(IOException | ClassNotFoundException e){
-            System.out.println(e);
-            return new ArrayList();
-        }
-    }
+//    public ArrayList loadMenu(){
+//        try(FileInputStream fin = new FileInputStream("MenuData.dat");
+//            ObjectInputStream in = new ObjectInputStream(fin);){
+//            System.out.println("load menu data success");
+//            return ((ArrayList)in.readObject());
+//        }catch(IOException | ClassNotFoundException e){
+//            System.out.println(e);
+//            return new ArrayList();
+//        }
+//    }
     
     private void filterRows() {
         JTextField searchTxt = view.getSearchTxt();

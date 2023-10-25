@@ -16,11 +16,11 @@ import model.Account;
  * @author baibu
  */
 public class CheckoutCtrl implements ActionListener {
-    CheckoutUI view;
-    DefaultTableModel orderTable;
-    Account user;
-    double total, cashAmount, change;
-    String paymentID;
+    private CheckoutUI view;
+    private DefaultTableModel orderTable;
+    private Account user;
+    private double total, cashAmount, change;
+    private String paymentID;
     
     public CheckoutCtrl(DefaultTableModel orderTable, double total, Account user){
         this.orderTable = orderTable;
