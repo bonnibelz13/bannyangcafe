@@ -8,6 +8,7 @@ import java.util.Date;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import model.Account;
 
 
 /**
@@ -17,12 +18,14 @@ import javax.swing.table.DefaultTableModel;
 public class CheckoutCtrl implements ActionListener {
     CheckoutUI view;
     DefaultTableModel orderTable;
+    Account user;
     double total, cashAmount, change;
     String paymentID;
     
-    public CheckoutCtrl(DefaultTableModel orderTable, double total){
+    public CheckoutCtrl(DefaultTableModel orderTable, double total, Account user){
         this.orderTable = orderTable;
         this.total = total;
+        this.user = user;
 
 //        System.out.println(orderTable.getRowCount());
 
@@ -129,7 +132,7 @@ public class CheckoutCtrl implements ActionListener {
     
     public void actionPerformed(ActionEvent ev) {
         if(ev.getSource()== view.getPaymentBtn()){
-            new PayMainCtrl(this);
+            new PayMainCtrl(this, user);
             System.out.println("PAYMENT PRESSED.");
             
             }

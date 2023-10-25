@@ -30,17 +30,19 @@ public class PaymentChooseCtrl implements ActionListener{
     double total, cash, change;
     String transID;
     int user_id, order_id;
+    Account user;
     
     
     //Default Constructure and Methods
     
-    public PaymentChooseCtrl(PayMainCtrl paymentCtrl, CheckoutCtrl checkoutCtrl){
+    public PaymentChooseCtrl(PayMainCtrl paymentCtrl, CheckoutCtrl checkoutCtrl, Account user){
         this.mainCtrl = paymentCtrl;
         this.total = checkoutCtrl.getTotal();
         this.cash = checkoutCtrl.getCash();
         this.change = checkoutCtrl.getChange();
         this.orderTableModel = checkoutCtrl.getOrderTableModel();
         this.transID = checkoutCtrl.getPaymentID();
+        this.user = user;
         
         ReceiptUI receipt = new ReceiptUI();
         receipt.getOrderTable().setModel(orderTableModel);
@@ -56,10 +58,10 @@ public class PaymentChooseCtrl implements ActionListener{
     public void initComponents() {
         view = new PaymentChooseUI();
         
-
-        
         view.getCashBtn().addActionListener((ActionListener)this);
         view.getPromptBtn().addActionListener((ActionListener)this);
+        
+        findUserID(user);
 
     }
     
@@ -143,6 +145,7 @@ public class PaymentChooseCtrl implements ActionListener{
     }
     
     public void findUserID(Account user){
+        
         System.out.println(user.getUsername());
         //String
         Connection con = db.getConnection();
@@ -174,13 +177,14 @@ public class PaymentChooseCtrl implements ActionListener{
             String totalPrice = dt.getValueAt(i, 4).toString(); // item Total Price
 
             // select menu_id from menu
-            String sql = "SELECT menu_id FROM menu WHERE menu_name = ?";
+            String sql = "SELECT menu_id FROM menu WHERE menu_name = ? AND user_id = ?";
             Connection con = db.getConnection();
             PreparedStatement ps = null;
 
             try {
                 ps = con.prepareStatement(sql);
                 ps.setString(1, item); // ตั้งค่าค่า parameter ในคำสั่ง SQL
+                ps.setInt(2, user_id);
 
                 ResultSet menuResult = ps.executeQuery();
 

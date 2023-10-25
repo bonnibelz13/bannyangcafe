@@ -49,7 +49,7 @@ public class CheckoutUI extends javax.swing.JFrame {
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
-        jLabel2.setText("Payment ID:");
+        jLabel2.setText("Transaction ID:");
         panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         paymentIDtxt.setEditable(false);

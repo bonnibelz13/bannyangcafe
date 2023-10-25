@@ -332,7 +332,7 @@ public class CreateOrderCtrl implements ActionListener {
             double total = calculateTotal(orderTableModel);
             System.out.println(total);
             
-            CheckoutCtrl checkoutCtrl = new CheckoutCtrl(orderTableModel, total);
+            CheckoutCtrl checkoutCtrl = new CheckoutCtrl(orderTableModel, total, user);
             
         }
         

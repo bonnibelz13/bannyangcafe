@@ -23,13 +23,16 @@ public class PaybyPromptCtrl implements ActionListener{
     PayMainCtrl mainCtrl;
     CheckoutCtrl checkoutCtrl;
     DefaultTableModel orderTableModel;
+    Account user;
     int user_id, order_id;
     
-    public PaybyPromptCtrl(PayMainCtrl paymentCtrl, CheckoutCtrl checkoutCtrl){
+    public PaybyPromptCtrl(PayMainCtrl paymentCtrl, CheckoutCtrl checkoutCtrl, Account user){
         
         this.mainCtrl = paymentCtrl;
         this.checkoutCtrl = checkoutCtrl;
         this.orderTableModel = checkoutCtrl.getOrderTableModel();
+        this.user = user;
+        
         
         initComponents();
     }
@@ -106,13 +109,14 @@ public class PaybyPromptCtrl implements ActionListener{
             String totalPrice = dt.getValueAt(i, 4).toString(); // item Total Price
 
             // select menu_id from menu
-            String sql = "SELECT menu_id FROM menu WHERE menu_name = ?";
+            String sql = "SELECT menu_id FROM menu WHERE menu_name = ? AND user_id = ?";
             Connection con = db.getConnection();
             PreparedStatement ps = null;
 
             try {
                 ps = con.prepareStatement(sql);
                 ps.setString(1, item); // ตั้งค่าค่า parameter ในคำสั่ง SQL
+                ps.setInt(2, user_id);
 
                 ResultSet menuResult = ps.executeQuery();
 
@@ -162,7 +166,7 @@ public class PaybyPromptCtrl implements ActionListener{
             if (option == JOptionPane.YES_OPTION) {
                 System.out.println("Printing...");
                 
-                PaymentChooseCtrl paymentChooseCtrl = new PaymentChooseCtrl(mainCtrl, checkoutCtrl);
+                PaymentChooseCtrl paymentChooseCtrl = new PaymentChooseCtrl(mainCtrl, checkoutCtrl, user);
                 paymentChooseCtrl.drawBill();
                 ReceiptUI receipt = paymentChooseCtrl.getReceiptUI();
                 

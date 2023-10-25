@@ -1,6 +1,8 @@
 
 package main;
 
+import model.Account;
+
 /**
  *
  * @author baibu
@@ -9,21 +11,23 @@ public class PayMainCtrl {
     PayMainUI view;
     PaymentChooseCtrl chooseCtrl;
     PaybyPromptCtrl promptCtrl;
+    Account user;
     CheckoutCtrl checkoutCtrl;
 
     
     
     // Constructor and Method
-   public PayMainCtrl(CheckoutCtrl checkoutCtrl) {
+   public PayMainCtrl(CheckoutCtrl checkoutCtrl, Account user) {
         this.checkoutCtrl = checkoutCtrl;
+        this.user = user;
 
         initComponents();
     }
     
     public void initComponents() {
         this.view = new PayMainUI();
-        this.chooseCtrl = new PaymentChooseCtrl(this, checkoutCtrl);
-        this.promptCtrl = new PaybyPromptCtrl(this, checkoutCtrl);
+        this.chooseCtrl = new PaymentChooseCtrl(this, checkoutCtrl, user);
+        this.promptCtrl = new PaybyPromptCtrl(this, checkoutCtrl, user);
         
 
         setView("PaymentChoose", "null");
