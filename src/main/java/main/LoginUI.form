@@ -40,8 +40,31 @@
         </Property>
       </Properties>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-        <Property name="useNullLayout" type="boolean" value="false"/>
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="260" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Component id="jLabel2" min="-2" pref="1090" max="-2" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Component id="jLabel2" min="-2" pref="820" max="-2" attributes="0"/>
+          </Group>
+        </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -54,11 +77,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="BannYang Cha."/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="460" y="40" width="260" height="100"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
@@ -66,11 +84,6 @@
               <Connection code="new java.awt.Color(236, 238, 241, 240)" type="code"/>
             </Property>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="190" y="140" width="720" height="620"/>
-            </Constraint>
-          </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -91,8 +104,8 @@
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Component id="jLabel4" min="-2" pref="300" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="username" pref="332" max="32767" attributes="0"/>
-                                          <Component id="loginbtn" max="32767" attributes="0"/>
+                                          <Component id="username" max="32767" attributes="0"/>
+                                          <Component id="loginbtn" pref="332" max="32767" attributes="0"/>
                                           <Component id="password" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -236,11 +249,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel2"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="1090" height="820"/>
-            </Constraint>
-          </Constraints>
         </Component>
       </SubComponents>
     </Container>
