@@ -3,17 +3,13 @@ package main;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.print.PrinterException;
-import java.text.MessageFormat;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import org.checkerframework.checker.units.qual.g;
 
 /**
  *
@@ -123,19 +119,6 @@ public class PaymentChooseCtrl implements ActionListener{
                 }
                
                 
-//                MessageFormat header = new MessageFormat("*** BannyangCha Cafe***" + "\n" + "Total: " + total + " " + "Baht.");
-//                MessageFormat footer = new MessageFormat("Page{0, number, integer}");
-//
-//                ReceiptUI receipt = new ReceiptUI();
-//                receipt.getOrderTable().setModel(orderTableModel);
-//                drawBill();
-//                System.out.println(receipt.getOrderTable().getRowCount());
-//                
-//                try {
-//                    receipt.getOrderTable().print(JTable.PrintMode.FIT_WIDTH, header, footer);
-//                } catch (PrinterException ex) {
-//                    Logger.getLogger(PaymentChooseCtrl.class.getName()).log(Level.SEVERE, null, ex);
-//                }
             }
         }
         
