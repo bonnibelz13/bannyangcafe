@@ -47,7 +47,7 @@ public class ViewSaleReportModel {
     public void loadTable(JTable table){
         System.out.println("load view sale table w/user_id = "+ user_id);
         Connection con = db.getConnection();
-        String sql= "SELECT * FROM order_bill JOIN order_item using(order_id) JOIN menu using(menu_id) where user_id = '"+user_id+"' Order by order_date ASC ";
+        String sql= "SELECT * FROM order_bill JOIN order_item using(order_id) JOIN menu using(menu_id) where user_id = '"+user_id+"' Order by order_date DESC ";
         try {Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             DefaultTableModel tableModel = (DefaultTableModel)table.getModel();
