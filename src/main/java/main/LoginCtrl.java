@@ -87,8 +87,6 @@ public class LoginCtrl implements ActionListener {
          
         }
     }    
-    public static void main(String[] args){
-        LoginCtrl loginCtrl = new LoginCtrl();
-    }
+    
 
 }

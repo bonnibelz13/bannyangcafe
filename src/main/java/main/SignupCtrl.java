@@ -139,9 +139,9 @@ public class SignupCtrl implements ActionListener {
         
        
     }
-    public static void main(String[] args) {
-        new SignupCtrl();
-    }
+//    public static void main(String[] args) {
+//        new SignupCtrl();
+//    }
     
     
 }
