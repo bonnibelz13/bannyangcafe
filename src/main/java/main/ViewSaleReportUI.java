@@ -54,19 +54,15 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel.setBackground(new java.awt.Color(243, 234, 221));
-        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setText("Sale Report");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
         yearCB.setBackground(new java.awt.Color(255, 255, 255));
         yearCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Year", "2023" }));
-        panel.add(yearCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
 
         monthCB.setBackground(new java.awt.Color(255, 255, 255));
         monthCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
-        panel.add(monthCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, -1));
 
         dateCB.setBackground(new java.awt.Color(255, 255, 255));
         dateCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -75,7 +71,6 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
                 dateCBActionPerformed(evt);
             }
         });
-        panel.add(dateCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 80, -1, -1));
 
         searchBtn.setBackground(new java.awt.Color(204, 255, 204));
         searchBtn.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -85,11 +80,9 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
                 searchBtnActionPerformed(evt);
             }
         });
-        panel.add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("Best Sellers");
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(255, 51, 51));
         btnBack.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -100,7 +93,6 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        panel.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         reportTable.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         reportTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -121,8 +113,6 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(reportTable);
 
-        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 510, 490));
-
         bestSellerTable.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         bestSellerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,23 +132,76 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(bestSellerTable);
 
-        panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, -1, 490));
-
         jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setText("Sale History");
-        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnBack))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel2)
+                        .addGap(330, 330, 330)
+                        .addComponent(yearCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(monthCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(dateCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(searchBtn))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel4)
+                        .addGap(473, 473, 473)
+                        .addComponent(jLabel3))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(btnBack)
+                .addGap(19, 19, 19)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(yearCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(monthCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchBtn))))
+                .addGap(9, 9, 9)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

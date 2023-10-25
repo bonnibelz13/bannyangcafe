@@ -75,72 +75,53 @@ public class HomeUI extends javax.swing.JFrame {
         jDate = new javax.swing.JLabel();
         jPMAM = new javax.swing.JLabel();
         jTime = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         btnViewSaleReport = new javax.swing.JButton();
         btnManageMenu = new javax.swing.JButton();
         btnCreateOrder = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         btnLogout = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel.setBackground(new java.awt.Color(201, 193, 188));
-        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         currentusername.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         currentusername.setForeground(new java.awt.Color(243, 242, 242));
         currentusername.setText("welcome, username");
-        panel.add(currentusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 540, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BAANYANGCHA.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 90, 80));
 
         Bannyang.setBackground(new java.awt.Color(234, 235, 238));
         Bannyang.setFont(new java.awt.Font("Angsana New", 1, 60)); // NOI18N
         Bannyang.setForeground(new java.awt.Color(248, 247, 247));
         Bannyang.setText("BannYang Cha.");
-        panel.add(Bannyang, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 370, -1));
 
         jDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jDate.setForeground(new java.awt.Color(243, 242, 242));
         jDate.setText("Saturday, 21/10/2023");
-        panel.add(jDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 220, -1));
 
         jPMAM.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jPMAM.setForeground(new java.awt.Color(243, 242, 242));
         jPMAM.setText("PM");
-        panel.add(jPMAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 100, 40, -1));
 
         jTime.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTime.setForeground(new java.awt.Color(243, 242, 242));
         jTime.setText("00:00:00");
-        panel.add(jTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, 90, -1));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel6.setText("View Sale's");
-        panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 200, 80));
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel5.setText("Report");
-        panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 380, 120, 80));
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel4.setText("Create Order");
-        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 230, 80));
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("© 2023 BaanYang Cha Inc.");
 
         btnViewSaleReport.setBackground(new java.awt.Color(255, 255, 255));
         btnViewSaleReport.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        btnViewSaleReport.setText("View Reports");
         btnViewSaleReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewSaleReportActionPerformed(evt);
             }
         });
-        panel.add(btnViewSaleReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 300, 300, 180));
 
         btnManageMenu.setBackground(new java.awt.Color(255, 255, 255));
         btnManageMenu.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -150,13 +131,10 @@ public class HomeUI extends javax.swing.JFrame {
                 btnManageMenuActionPerformed(evt);
             }
         });
-        panel.add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 300, 180));
 
         btnCreateOrder.setBackground(new java.awt.Color(255, 255, 255));
         btnCreateOrder.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        panel.add(btnCreateOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 300, 180));
-
-        jPanel2.setBackground(new java.awt.Color(236, 238, 241, 30));
+        btnCreateOrder.setText("Create Order");
 
         btnLogout.setBackground(new java.awt.Color(17, 16, 16));
         btnLogout.setFont(new java.awt.Font("BD Megatoya Outline Black Itali", 1, 12)); // NOI18N
@@ -168,46 +146,106 @@ public class HomeUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("© 2023 BaanYang Cha Inc.");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(btnLogout)
-                .addGap(452, 452, 452)
-                .addComponent(jLabel3)
-                .addContainerGap(527, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(677, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(btnLogout))
-                .addGap(15, 15, 15))
-        );
-
-        panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 720));
-
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/signupcafe.jpg"))); // NOI18N
-        bg.setText("jLabel2");
-        panel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 720));
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCreateOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addComponent(btnLogout)
+                        .addGap(392, 392, 392)
+                        .addComponent(jLabel3)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(1060, 1060, 1060)
+                        .addComponent(jPMAM, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(890, 890, 890)
+                        .addComponent(jDate, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(980, 980, 980)
+                        .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(currentusername, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(Bannyang, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(820, 820, 820)
+                        .addComponent(btnViewSaleReport, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(450, 450, 450)
+                        .addComponent(btnManageMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(80, 80, 80))
+            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelLayout.createSequentialGroup()
+                    .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jPMAM))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jDate))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(btnViewSaleReport, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jTime))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(btnManageMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel1))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(currentusername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(Bannyang))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(btnCreateOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(21, 21, 21))
+            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelLayout.createSequentialGroup()
+                    .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -271,11 +309,7 @@ public class HomeUI extends javax.swing.JFrame {
     private javax.swing.JLabel jDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jPMAM;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jTime;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables

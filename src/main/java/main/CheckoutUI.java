@@ -46,50 +46,39 @@ public class CheckoutUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panel.setBackground(new java.awt.Color(238, 235, 234));
-        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel2.setText("Transaction ID:");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         paymentIDtxt.setEditable(false);
         paymentIDtxt.setBackground(new java.awt.Color(220, 219, 219));
         paymentIDtxt.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        panel.add(paymentIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 250, 40));
 
         jLabel3.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel3.setText("Payment Date:");
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
 
         paymenyDatetxt.setEditable(false);
         paymenyDatetxt.setBackground(new java.awt.Color(220, 219, 219));
         paymenyDatetxt.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        panel.add(paymenyDatetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 250, 40));
 
         TotalTxt.setEditable(false);
         TotalTxt.setBackground(new java.awt.Color(220, 219, 219));
         TotalTxt.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        panel.add(TotalTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 250, 40));
 
         jLabel6.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel6.setText("Total (฿):");
-        panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
         CashTxt.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        panel.add(CashTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 250, 40));
 
         jLabel7.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel7.setText("Cash (฿):");
-        panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
 
         ChangeTxt.setEditable(false);
         ChangeTxt.setBackground(new java.awt.Color(220, 219, 219));
         ChangeTxt.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        panel.add(ChangeTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 250, 40));
 
         jLabel8.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel8.setText("Change (฿):");
-        panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, -1, -1));
 
         orderTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -102,23 +91,73 @@ public class CheckoutUI extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(orderTable);
 
-        panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 490, 620));
-
         paymentBtn.setBackground(new java.awt.Color(36, 126, 84));
         paymentBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         paymentBtn.setForeground(new java.awt.Color(255, 255, 255));
         paymentBtn.setText("Payment");
-        panel.add(paymentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 250, 50));
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(paymentIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(paymenyDatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(TotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(CashTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(ChangeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(180, 180, 180)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(7, 7, 7)
+                        .addComponent(paymentIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3)
+                        .addGap(7, 7, 7)
+                        .addComponent(paymenyDatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel6)
+                        .addGap(7, 7, 7)
+                        .addComponent(TotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel7)
+                        .addGap(7, 7, 7)
+                        .addComponent(CashTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel8)
+                        .addGap(7, 7, 7)
+                        .addComponent(ChangeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(120, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1090, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

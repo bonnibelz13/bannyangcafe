@@ -49,32 +49,23 @@ public class ManageMenuUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel.setBackground(new java.awt.Color(243, 234, 221));
-        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imageLabel.setBackground(new java.awt.Color(255, 255, 255));
         imageLabel.setOpaque(true);
-        panel.add(imageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 250, 170));
 
         addImgBtn.setBackground(new java.awt.Color(239, 220, 208));
         addImgBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         addImgBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconaddpic.png"))); // NOI18N
         addImgBtn.setText("picture");
-        panel.add(addImgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 110, 40));
 
         jLabel2.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel2.setText("Name:");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
-        panel.add(menuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 250, -1));
 
         jLabel3.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel3.setText("Price (฿):");
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, -1));
-        panel.add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 250, -1));
-        panel.add(desciption, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, 250, 70));
 
         jLabel4.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         jLabel4.setText("Description");
-        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
 
         menuTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -87,30 +78,24 @@ public class ManageMenuUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(menuTable);
 
-        panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 510, 450));
-
         delMenuBtn.setBackground(new java.awt.Color(213, 135, 135));
         delMenuBtn.setFont(new java.awt.Font("Angsana New", 1, 28)); // NOI18N
         delMenuBtn.setForeground(new java.awt.Color(25, 24, 24));
         delMenuBtn.setText("Delete");
-        panel.add(delMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 170, 40));
 
         updateMenuBtn.setBackground(new java.awt.Color(209, 199, 173));
         updateMenuBtn.setFont(new java.awt.Font("Angsana New", 1, 28)); // NOI18N
         updateMenuBtn.setForeground(new java.awt.Color(32, 29, 29));
         updateMenuBtn.setText("Update");
-        panel.add(updateMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 540, 170, 40));
 
         addMenuBtn.setBackground(new java.awt.Color(127, 161, 136));
         addMenuBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         addMenuBtn.setText("Add Menu");
-        panel.add(addMenuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 640, 100, 40));
 
         backBtn.setBackground(new java.awt.Color(163, 46, 46));
         backBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("Back");
-        panel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         refreshBtn.setBackground(new java.awt.Color(153, 204, 255));
         refreshBtn.setFont(new java.awt.Font("Angsana New", 1, 28)); // NOI18N
@@ -120,17 +105,89 @@ public class ManageMenuUI extends javax.swing.JFrame {
                 refreshBtnActionPerformed(evt);
             }
         });
-        panel.add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 150, 40));
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(backBtn)
+                        .addGap(78, 78, 78)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addComponent(addImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(menuName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(120, 120, 120)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(desciption, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(180, 180, 180)
+                        .addComponent(updateMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(delMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(addMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(460, 460, 460)
+                        .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backBtn)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(addImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel2)
+                                .addGap(7, 7, 7)
+                                .addComponent(menuName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel3)
+                                .addGap(7, 7, 7)
+                                .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel4))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(17, 17, 17)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(desciption, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(delMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(addMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
