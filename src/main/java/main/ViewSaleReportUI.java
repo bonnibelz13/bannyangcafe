@@ -53,19 +53,23 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panel.setBackground(new java.awt.Color(243, 234, 221));
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setText("Sale Report");
         panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
+        yearCB.setBackground(new java.awt.Color(255, 255, 255));
         yearCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Year", "2023" }));
         panel.add(yearCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
 
+        monthCB.setBackground(new java.awt.Color(255, 255, 255));
         monthCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
         panel.add(monthCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, -1));
 
-        dateCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Date", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dateCB.setBackground(new java.awt.Color(255, 255, 255));
+        dateCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         dateCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dateCBActionPerformed(evt);
@@ -73,7 +77,7 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         });
         panel.add(dateCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 80, -1, -1));
 
-        searchBtn.setBackground(new java.awt.Color(255, 255, 255));
+        searchBtn.setBackground(new java.awt.Color(204, 255, 204));
         searchBtn.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         searchBtn.setText("Search");
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +102,7 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         });
         panel.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        reportTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
+        reportTable.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         reportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -119,6 +123,7 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
 
         panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 510, 490));
 
+        bestSellerTable.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         bestSellerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
