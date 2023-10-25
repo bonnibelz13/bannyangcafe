@@ -28,7 +28,7 @@ public class MainCtrl {
         this.mainUI = new MainUI();
         this.homeCtrl = new HomeCtrl(this, user);
         
-        this.viewSaleReportCtrl = new ViewSaleReportCtrl(this);
+        this.viewSaleReportCtrl = new ViewSaleReportCtrl(this, user);
         this.manageMenuCtrl = new ManageMenuCtrl(this, user);
         this.createOrderCtrl = new CreateOrderCtrl(this, user);
 //        this.checkoutCtrl = new CheckoutCtrl(this);
@@ -40,7 +40,7 @@ public class MainCtrl {
         mainUI.setVisible(true);
     }
     
-    public ViewSaleReportCtrl getViewSaleRepoerCtrl() {
+    public ViewSaleReportCtrl getViewSaleReportCtrl() {
         return viewSaleReportCtrl;
     }
     public ManageMenuCtrl getManageMenuCtrl(){
@@ -64,6 +64,7 @@ public class MainCtrl {
         
         // Home -> ViewSaleReport UI
         if (to.equals(new String("ViewSaleReport")) && from.equals("null")) {
+            this.viewSaleReportCtrl = new ViewSaleReportCtrl(this, user);
             mainUI.remove(homeCtrl.getPanel());
             mainUI.add(viewSaleReportCtrl.getPanel());
             mainUI.revalidate();

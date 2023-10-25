@@ -5,7 +5,9 @@
 package main;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 /**
  *
@@ -37,14 +39,17 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
 
         panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        yearCB = new javax.swing.JComboBox<>();
+        monthCB = new javax.swing.JComboBox<>();
+        dateCB = new javax.swing.JComboBox<>();
+        searchBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        menuTable = new javax.swing.JTable();
+        reportTable = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        bestSellerTable = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,28 +59,33 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         jLabel2.setText("Sale Report");
         panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2023" }));
-        panel.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
+        yearCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Year", "2023" }));
+        panel.add(yearCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Month", "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
-        panel.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, -1));
+        monthCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        panel.add(monthCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Date", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
-        panel.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 80, -1, -1));
-
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jButton3.setText("Search");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        dateCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Date", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dateCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                dateCBActionPerformed(evt);
             }
         });
-        panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 80, -1, -1));
+        panel.add(dateCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 80, -1, -1));
+
+        searchBtn.setBackground(new java.awt.Color(255, 255, 255));
+        searchBtn.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+        panel.add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel3.setText("Sale History");
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+        jLabel3.setText("Best Sellers");
+        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(255, 51, 51));
         btnBack.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -88,18 +98,50 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         });
         panel.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        menuTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
-        menuTable.setModel(new javax.swing.table.DefaultTableModel(
+        reportTable.setFont(new java.awt.Font("BD Megatoya Extended Thin Itali", 0, 14)); // NOI18N
+        reportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Image", "Menu ID", "Name", "Price", "Description"
+                "Date", "Order ID", "Menu name", "Qt", "Line Price"
             }
-        ));
-        jScrollPane1.setViewportView(menuTable);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(reportTable);
 
         panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 510, 490));
+
+        bestSellerTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "No", "Menu name", "Total sale"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(bestSellerTable);
+
+        panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, -1, 490));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel4.setText("Sale History");
+        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,13 +159,17 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void dateCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateCBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,15 +207,64 @@ public class ViewSaleReportUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable bestSellerTable;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> dateCB;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable menuTable;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JComboBox<String> monthCB;
     private javax.swing.JPanel panel;
+    private javax.swing.JTable reportTable;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JComboBox<String> yearCB;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getBestSellerTable(){
+        return bestSellerTable;
+    }
+    public void setBestSellerTable(JTable bestSellerTable){
+        this.bestSellerTable = bestSellerTable;
+    }
+    public JComboBox<String> getDateCB() {
+        return dateCB;
+    }
+
+    public void setDateCB(JComboBox<String> dateCB) {
+        this.dateCB = dateCB;
+    }
+
+    public JComboBox<String> getMonthCB() {
+        return monthCB;
+    }
+
+    public void setMonthCB(JComboBox<String> monthCB) {
+        this.monthCB = monthCB;
+    }
+
+    public JTable getReportTable() {
+        return reportTable;
+    }
+
+    public void setReportTable(JTable reportTable) {
+        this.reportTable = reportTable;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+
+    public void setSearchBtn(JButton searchBtn) {
+        this.searchBtn = searchBtn;
+    }
+
+    public JComboBox<String> getYearCB() {
+        return yearCB;
+    }
+
+    public void setYearCB(JComboBox<String> yearCB) {
+        this.yearCB = yearCB;
+    }
 }

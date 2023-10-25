@@ -68,7 +68,6 @@ public class UpdateMenuModel {
             //table = view.getMenuTable();
             
             while(rs.next()){
-               
                 menu_id = rs.getInt("menu_id");
                 System.out.println(menu_id);
             }
