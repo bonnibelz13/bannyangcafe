@@ -42,6 +42,8 @@ public class PaybyPromptCtrl implements ActionListener{
 
         view.getBackBtn().addActionListener((ActionListener)this);
         view.getPrintBtn().addActionListener((ActionListener)this);
+        
+        findUserID(user);
 
     }
     
