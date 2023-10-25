@@ -204,12 +204,13 @@ public class PaymentChooseCtrl implements ActionListener{
                         int rowsAffected = ps.executeUpdate();
 
                         System.out.println("Insert Order_Item to DB completed");
-                        JOptionPane.showMessageDialog(null, "Successfully!");
+                        
 
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                         System.out.println("Insert order_item Failed.");
                     }
+                    
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -236,6 +237,7 @@ public class PaymentChooseCtrl implements ActionListener{
                     int paymentID = 1;
                     newOrder(paymentID);
                     newOrderItem(paymentID);
+                    JOptionPane.showMessageDialog(null, "Successfully!");
                     
                 } catch (Exception e){
                     
