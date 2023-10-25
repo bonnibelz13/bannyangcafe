@@ -21,6 +21,7 @@ public class PaymentChooseCtrl implements ActionListener{
     DefaultTableModel orderTableModel;
     ReceiptUI receipt;
     double total, cash, change;
+    String paymentID;
     
     
     //Default Constructure and Methods
@@ -31,6 +32,7 @@ public class PaymentChooseCtrl implements ActionListener{
         this.cash = checkoutCtrl.getCash();
         this.change = checkoutCtrl.getChange();
         this.orderTableModel = checkoutCtrl.getOrderTableModel();
+        this.paymentID = checkoutCtrl.getPaymentID();
         
         ReceiptUI receipt = new ReceiptUI();
         receipt.getOrderTable().setModel(orderTableModel);
@@ -65,18 +67,18 @@ public class PaymentChooseCtrl implements ActionListener{
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"               ");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+" \t\t   BANNYANGCHA. CAFE\n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"\t\t         Tel: 021111111\n");
-        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"               \n");
+        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Payment ID: " + paymentID + "\n");
         
         
         Date dd = new Date();
-        SimpleDateFormat datef = new SimpleDateFormat("yyyy-mm-dd");
-        SimpleDateFormat timef = new SimpleDateFormat("hh:mm:ss");
-        String date = datef.format(dd);
-        String time = timef.format(dd);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat tf = new SimpleDateFormat("hh:mm:ss aa");
+        String date = df.format(dd);
+        String time = tf.format(dd);
         
         
         
-        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"\t         Date: " + date + "     Time: " + time + "\n"); 
+        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Date: " + date + "\t\t\t           Time: " + time + "\n"); 
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = \n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"  Item\t(Qty.)\t\t\tPrice (Baht.)\n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"-----------------------------------------------------------------------------------------------------------\n");
