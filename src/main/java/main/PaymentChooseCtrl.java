@@ -28,8 +28,8 @@ public class PaymentChooseCtrl implements ActionListener{
     DefaultTableModel orderTableModel;
     ReceiptUI receipt;
     double total, cash, change;
-    String transID;
-    int user_id, order_id;
+    String transID, order_id;
+    int user_id;
     Account user;
     
     
@@ -42,6 +42,8 @@ public class PaymentChooseCtrl implements ActionListener{
         this.change = checkoutCtrl.getChange();
         this.orderTableModel = checkoutCtrl.getOrderTableModel();
         this.transID = checkoutCtrl.getPaymentID();
+        this.order_id = "";
+        
         this.user = user;
         
         ReceiptUI receipt = new ReceiptUI();
@@ -76,8 +78,8 @@ public class PaymentChooseCtrl implements ActionListener{
         receipt.getTxtPane().setText("= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = \n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"               ");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+" \t\t   BANNYANGCHA. CAFE\n");
-        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"\t\t         Tel: 021111111\n");
-        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Transaction ID: " + transID + "\n");
+        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"\t\t         Tel: 021111111\n\n");
+        
         
         
         Date dd = new Date();
@@ -89,6 +91,7 @@ public class PaymentChooseCtrl implements ActionListener{
         
         
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Date: " + date + "\t\t\t           Time: " + time + "\n"); 
+        receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"    Transaction ID: " + transID + "\t\tOrder ID: " + order_id +"\n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = \n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"  Item\t(Qty.)\t\t\tPrice (Baht.)\n");
         receipt.getTxtPane().setText(receipt.getTxtPane().getText()+"-----------------------------------------------------------------------------------------------------------\n");
@@ -134,6 +137,7 @@ public class PaymentChooseCtrl implements ActionListener{
                 if (generatedKeys.next()) {
                     generatedOrderID = generatedKeys.getInt(1);
                     System.out.println("Inserted order with order_id: " + generatedOrderID);
+                    this.order_id = String.valueOf(generatedOrderID);
                 }
             }
         } catch (SQLException ex) {
@@ -227,16 +231,19 @@ public class PaymentChooseCtrl implements ActionListener{
             int option = JOptionPane.showConfirmDialog(null, "Do you want to print the receipt?", "Print", JOptionPane.YES_NO_OPTION);
             if (option == JOptionPane.YES_OPTION) {
                 System.out.println("Printing...");
-                drawBill();
+                
                 
                 try {
-                     receipt.getTxtPane().print();
-                     
+                    
                     // Save to Database.
                     
                     int paymentID = 1;
 //                    newOrder(paymentID);
                     newOrderItem(paymentID);
+                    
+                    drawBill();
+                    receipt.getTxtPane().print();
+
                     JOptionPane.showMessageDialog(null, "Successfully!");
                     
                 } catch (Exception e){
